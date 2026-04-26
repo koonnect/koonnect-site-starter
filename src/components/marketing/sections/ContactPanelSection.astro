@@ -1,0 +1,49 @@
+---
+import SectionShell from "../layout/SectionShell.astro";
+
+type Props = {
+  data: {
+    eyebrow: string;
+    title: string[];
+    description: string;
+    details: { label: string; value: string; href?: string }[];
+    primaryCta: { label: string; href: string };
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<SectionShell eyebrow={data.eyebrow} title={data.title} description={data.description}>
+  <div class="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+    <div class="surface-card p-6">
+      <div class="grid gap-5">
+        {data.details.map((detail) => (
+          <div class="border-b border-white/8 pb-5 last:border-b-0 last:pb-0">
+            <div class="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/40">{detail.label}</div>
+            {detail.href ? (
+              <a href={detail.href} class="mt-3 block text-lg font-medium text-white no-underline hover:text-[var(--koon-blue)]">
+                {detail.value}
+              </a>
+            ) : (
+              <div class="mt-3 text-lg font-medium text-white">{detail.value}</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="surface-card flex min-h-[320px] flex-col justify-between p-6">
+      <div class="space-y-4">
+        <div class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--koon-gold)]">Next step</div>
+        <h3 class="text-3xl font-semibold text-white">Use this panel as the structured contact block for demos, sales or support.</h3>
+        <p class="text-sm leading-7 text-white/65">
+          The goal is not to hardcode contact variants into every page. We keep details structured and predictable for the CMS layer.
+        </p>
+      </div>
+      <a href={data.primaryCta.href} class="mt-8 inline-flex w-fit rounded-full bg-[var(--koon-blue)] px-6 py-3 text-sm font-semibold text-white no-underline shadow-[0_0_20px_rgba(0,147,252,0.35)]">
+        {data.primaryCta.label}
+      </a>
+    </div>
+  </div>
+</SectionShell>

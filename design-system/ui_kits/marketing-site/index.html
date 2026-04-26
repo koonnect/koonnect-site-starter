@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<title>Koonnect — Marketing Site Kit</title>
+<style>
+/* =========================================================
+   KOONNECT DESIGN SYSTEM — Colors & Type
+   Source: Koonnect'25 dark-mode marketing site (Figma)
+   Brand: E-commerce & AI-enablement platform · Portuguese
+   ========================================================= */
+
+/* Self-hosted Poppins — full family (thin 100 … black 900, upright + italic) */
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Thin.ttf') format('truetype');        font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-ThinItalic.ttf') format('truetype');  font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-ExtraLight.ttf') format('truetype');  font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-ExtraLightItalic.ttf') format('truetype'); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Light.ttf') format('truetype');       font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-LightItalic.ttf') format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Regular.ttf') format('truetype');     font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Italic.ttf') format('truetype');      font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Medium.ttf') format('truetype');      font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-MediumItalic.ttf') format('truetype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-SemiBold.ttf') format('truetype');    font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-SemiBoldItalic.ttf') format('truetype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Bold.ttf') format('truetype');        font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-BoldItalic.ttf') format('truetype');  font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');   font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-Black.ttf') format('truetype');       font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('fonts/Poppins-BlackItalic.ttf') format('truetype'); font-weight: 900; font-style: italic; font-display: swap; }
+
+:root {
+  /* --- BRAND COLORS --- */
+  --koon-blue:        rgb(0, 147, 252);   /* Primary blue — links, CTAs, accents */
+  --koon-blue-deep:   rgb(39, 41, 145);   /* Deep navy — gradient bottom, logo */
+  --koon-blue-press:  rgb(0, 113, 188);   /* Pressed/darker blue */
+  --koon-gold:        rgb(252, 192, 0);   /* Primary gold — highlights, secondary CTA */
+  --koon-gold-bright: rgb(255, 230, 46);  /* Bright yellow — accents (logo, flag) */
+  --koon-magenta:     rgb(215, 36, 180);  /* Magenta (logo variant) */
+
+  /* Signature gradient — appears on highlight fills + pill CTAs */
+  --koon-gradient:       linear-gradient(180deg, var(--koon-gold) 0%, var(--koon-blue) 100%);
+  --koon-gradient-text:  linear-gradient(180deg, var(--koon-gold) 0%, var(--koon-blue) 100%);
+  --koon-gradient-blue:  linear-gradient(180deg, var(--koon-blue) 0%, var(--koon-blue-deep) 100%);
+
+  /* --- NEUTRALS (DARK MODE — default) --- */
+  --koon-bg:          rgb(32, 32, 32);    /* Page background */
+  --koon-bg-raised:   rgb(51, 51, 51);    /* Cards, headers, footer */
+  --koon-bg-deep:     rgb(15, 15, 15);    /* Extra-dark pockets */
+  --koon-surface:     rgba(255, 255, 255, 0.05); /* Glass search pill, overlays */
+
+  --koon-border:      rgb(51, 51, 51);    /* 2px outline cards */
+  --koon-border-soft: rgb(62, 67, 71);    /* Subtle dividers */
+  --koon-border-hair: rgba(216, 216, 231, 0.3);
+
+  --koon-fg:          rgb(255, 255, 255); /* Primary text on dark */
+  --koon-fg-muted:    rgb(199, 199, 199); /* Secondary text, placeholders */
+  --koon-fg-subtle:   rgb(130, 130, 130);
+  --koon-fg-inverse:  rgb(32, 32, 32);    /* Text on white cards */
+
+  /* --- SEMANTIC --- */
+  --koon-success:     rgb(105, 150, 53);
+  --koon-error:       rgb(237, 76, 92);
+  --koon-info:        var(--koon-blue);
+  --koon-warning:     var(--koon-gold);
+
+  /* --- SHADOWS --- */
+  --koon-shadow-sm:   0 0 15px rgba(0, 0, 0, 0.10);
+  --koon-shadow-md:   0 10px 16px rgba(0, 0, 0, 0.50);
+  --koon-shadow-lg:   0 0 20px rgb(0, 0, 0);
+  --koon-shadow-glow: 0 0 15px rgb(32, 32, 32);
+
+  /* --- RADII --- */
+  --koon-r-xs:  2px;   /* checkboxes */
+  --koon-r-sm:  10px;  /* secondary cards */
+  --koon-r-md:  15px;  /* primary cards, images */
+  --koon-r-pill: 18px; /* buttons, chips, search */
+  --koon-r-full: 9999px;
+
+  /* --- SPACING (4-point scale) --- */
+  --koon-sp-1: 4px;
+  --koon-sp-2: 8px;
+  --koon-sp-3: 12px;
+  --koon-sp-4: 16px;
+  --koon-sp-5: 20px;
+  --koon-sp-6: 24px;
+  --koon-sp-8: 32px;
+  --koon-sp-10: 40px;
+  --koon-sp-12: 48px;
+  --koon-sp-16: 64px;
+  --koon-sp-20: 80px;     /* header height */
+  --koon-sp-container: 140px; /* page side padding on 1440 */
+
+  /* --- TYPE --- */
+  --koon-font:        'Poppins', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --koon-h1-size: 48px;   --koon-h1-weight: 800;   --koon-h1-lh: 1.05;
+  --koon-h2-size: 44px;   --koon-h2-weight: 400;   --koon-h2-lh: 1.25;
+  --koon-h3-size: 36px;   --koon-h3-weight: 400;   --koon-h3-lh: 1.4;
+  --koon-h4-size: 30px;   --koon-h4-weight: 700;   --koon-h4-lh: 1.15;
+  --koon-h5-size: 24px;   --koon-h5-weight: 500;   --koon-h5-lh: 1.3;
+  --koon-h6-size: 21px;   --koon-h6-weight: 500;   --koon-h6-lh: 1.2;
+
+  --koon-body-lg-size: 18px;  --koon-body-lg-lh: 1.5;
+  --koon-body-size:    16px;  --koon-body-lh:    1.5;
+  --koon-body-sm-size: 14px;  --koon-body-sm-lh: 1.35;
+  --koon-caption-size: 12px;  --koon-caption-lh: 1.4;
+  --koon-micro-size:   11px;  --koon-micro-lh:   1.0;
+  --koon-micro-tracking: 0.04em;
+
+  /* --- MOTION --- */
+  --koon-ease:   cubic-bezier(.2, .8, .2, 1);
+  --koon-dur:    180ms;
+  --koon-dur-lg: 320ms;
+}
+
+/* =========================================================
+   Semantic element defaults — use inside .koon scope
+   ========================================================= */
+
+.koon,
+.koon * {
+  box-sizing: border-box;
+}
+
+.koon {
+  background: var(--koon-bg);
+  color: var(--koon-fg);
+  font-family: var(--koon-font);
+  font-size: var(--koon-body-size);
+  line-height: var(--koon-body-lh);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.koon h1, .koon .h1 { font-size: var(--koon-h1-size); font-weight: var(--koon-h1-weight); line-height: var(--koon-h1-lh); margin: 0; }
+.koon h2, .koon .h2 { font-size: var(--koon-h2-size); font-weight: var(--koon-h2-weight); line-height: var(--koon-h2-lh); margin: 0; }
+.koon h3, .koon .h3 { font-size: var(--koon-h3-size); font-weight: var(--koon-h3-weight); line-height: var(--koon-h3-lh); margin: 0; }
+.koon h4, .koon .h4 { font-size: var(--koon-h4-size); font-weight: var(--koon-h4-weight); line-height: var(--koon-h4-lh); margin: 0; }
+.koon h5, .koon .h5 { font-size: var(--koon-h5-size); font-weight: var(--koon-h5-weight); line-height: var(--koon-h5-lh); margin: 0; }
+.koon h6, .koon .h6 { font-size: var(--koon-h6-size); font-weight: var(--koon-h6-weight); line-height: var(--koon-h6-lh); margin: 0; }
+
+.koon p, .koon .p  { font-size: var(--koon-body-size); line-height: var(--koon-body-lh); margin: 0; color: var(--koon-fg); }
+.koon .p-muted     { color: var(--koon-fg-muted); }
+.koon .body-lg     { font-size: var(--koon-body-lg-size); line-height: var(--koon-body-lg-lh); }
+.koon .body-sm     { font-size: var(--koon-body-sm-size); line-height: var(--koon-body-sm-lh); }
+.koon .caption     { font-size: var(--koon-caption-size); line-height: var(--koon-caption-lh); color: var(--koon-fg-muted); }
+.koon .eyebrow     { font-size: var(--koon-micro-size); letter-spacing: var(--koon-micro-tracking); text-transform: uppercase; color: var(--koon-blue); }
+
+.koon a            { color: var(--koon-blue); text-decoration: none; transition: opacity var(--koon-dur) var(--koon-ease); }
+.koon a:hover      { opacity: 0.75; }
+
+/* Gradient text — used on key hero words */
+.koon .gradient-text {
+  background: var(--koon-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Koonnect marketing-site kit — extends colors_and_type.css */
+body { margin: 0; background: var(--koon-bg); color: var(--koon-fg); font-family: var(--koon-font); }
+* { box-sizing: border-box; }
+
+/* ——— Header ——— */
+.k-header {
+  position: sticky; top: 0; z-index: 50;
+  height: 80px;
+  background: rgb(51,51,51);
+  box-shadow: 0 0 15px rgba(0,0,0,.10);
+  display: flex; align-items: center;
+  padding: 0 50px;
+  gap: 40px;
+}
+.k-logo { width: 63px; height: 55px; background: url(assets/logo-mark.png) center/contain no-repeat; flex-shrink: 0; }
+.k-nav { display: flex; gap: 26px; align-items: center; margin-left: 40px; font-size: 14px; color: #fff; }
+.k-nav-item { display: flex; align-items: center; gap: 6px; cursor: pointer; opacity: .95; transition: opacity .2s; position: relative; padding: 8px 0; }
+.k-nav-item:hover { opacity: .6; }
+.k-nav-item .caret { width: 8px; height: 5px; background: currentColor; clip-path: polygon(0 0, 100% 0, 50% 100%); display: inline-block; }
+.k-nav-cta { margin-left: auto; display: flex; gap: 12px; align-items: center; }
+.k-nav-pt { display: flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid rgb(199,199,199); color: rgb(199,199,199); border-radius: 18px; font-size: 14px; }
+.k-nav-pt .flag { width: 18px; height: 14px; border-radius: 50%; background: linear-gradient(90deg, rgb(105,150,53) 30%, rgb(237,76,92) 30%); position: relative; }
+.k-nav-pt .flag::after { content: ""; position: absolute; left: 5px; top: 3px; width: 7px; height: 7px; background: rgb(255,230,46); border-radius: 50%; border: 1px solid rgb(237,76,92); }
+.k-btn-demo { background: #0093FC; color: #fff; padding: 8px 22px; height: 35px; border: none; border-radius: 18px; font-size: 14px; cursor: pointer; font-family: var(--koon-font); }
+.k-btn-demo:hover { filter: brightness(1.08); }
+
+/* ——— Mega menu ——— */
+.k-mega {
+  position: absolute; top: 80px; left: 0; right: 0;
+  background: rgb(51,51,51); box-shadow: 0 10px 16px rgba(0,0,0,.5);
+  padding: 45px 140px; display: none; gap: 24px;
+}
+.k-mega.open { display: flex; }
+.k-mega-col { flex: 1; }
+.k-mega-card { background: #202020; border-radius: 15px; padding: 20px; height: 174px; display: flex; flex-direction: column; justify-content: space-between; }
+.k-mega-title { color: #0093FC; font-size: 18px; font-weight: 500; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.k-mega-title .arrow { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(180deg,#FCC000,#0093FC); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.k-mega-title.gold { color: #FCC000; }
+.k-mega-sub { color: rgb(199,199,199); font-size: 12px; line-height: 20px; margin-top: 10px; }
+.k-mega-img { background: url(assets/ecommerce-photo.jpg) center/cover; border-radius: 15px; padding: 20px; height: 262px; display: flex; flex-direction: column; justify-content: flex-end; color: #fff; position: relative; }
+.k-mega-img::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.35); border-radius: 15px; }
+.k-mega-img > * { position: relative; z-index: 1; }
+
+/* ——— Buttons ——— */
+.k-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; cursor: pointer; font-family: var(--koon-font); font-weight: 400; line-height: 1; transition: filter .2s, opacity .2s; }
+.k-btn-primary { background: #0093FC; color: #fff; padding: 0 28px; height: 45px; border-radius: 23px; font-size: 16px; }
+.k-btn-primary:hover { filter: brightness(1.1); }
+.k-btn-primary:active { filter: brightness(.92); }
+.k-btn-outline { background: transparent; color: #fff; padding: 0 28px; height: 40px; border-radius: 20px; border: 1px solid #fff; font-size: 16px; }
+.k-btn-gold { background: #FCC000; color: #fff; padding: 0 22px; height: 35px; border-radius: 18px; font-size: 16px; }
+.k-btn-grad { background: linear-gradient(180deg,#0093FC,#272991); color: #fff; padding: 0 24px; height: 35px; border-radius: 18px; font-size: 14px; }
+
+/* ——— Hero ——— */
+.k-hero { position: relative; height: 580px; overflow: hidden; }
+.k-hero-bg { position: absolute; inset: 0; background: url(assets/hero-bg-dark.jpg) center/cover; }
+.k-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #202020 0%, rgba(98,98,98,0) 100%); }
+.k-hero-inner { position: relative; max-width: 1160px; margin: 0 auto; padding: 200px 140px 0; text-align: center; }
+.k-hero-title { font-size: 30px; font-weight: 700; line-height: 35px; color: #fff; max-width: 594px; margin: 0 auto; }
+.k-hero-search { margin: 36px auto 0; max-width: 678px; height: 50px; border-radius: 25px; background: rgba(255,255,255,.05); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; padding: 0 22px; gap: 14px; }
+.k-hero-search .dot { width: 20px; height: 20px; border-radius: 4px; background: #FCC000; flex-shrink: 0; }
+.k-hero-search input { background: transparent; border: none; outline: none; flex: 1; color: #fff; font-size: 18px; font-family: var(--koon-font); opacity: .9; }
+.k-hero-search input::placeholder { color: rgba(255,255,255,.5); }
+
+/* ——— Solutions grid ——— */
+.k-section { padding: 90px 140px; }
+.k-section-title { font-size: 30px; font-weight: 400; line-height: 1.15; color: #0093FC; text-align: center; margin-bottom: 10px; }
+.k-section-title .grad { background: linear-gradient(180deg,#FCC000,#0093FC); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+.k-section-sub { font-size: 14px; color: rgb(199,199,199); text-align: center; max-width: 560px; margin: 0 auto 40px; }
+.k-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px; }
+.k-pillar { border: 2px solid #333; border-radius: 10px; padding: 26px 20px; text-align: center; background: transparent; display: flex; flex-direction: column; align-items: center; gap: 14px; transition: border-color .2s, transform .2s; }
+.k-pillar:hover { border-color: #0093FC; transform: translateY(-4px); }
+.k-pillar-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #fff; }
+.k-pillar-icon svg { width: 40px; height: 40px; }
+.k-pillar h4 { font-size: 18px; font-weight: 600; color: #fff; margin: 0; }
+.k-pillar p { font-size: 14px; line-height: 1.35; color: rgb(199,199,199); margin: 0; flex: 1; }
+.k-pillar .k-btn { width: 100%; margin-top: 8px; height: 35px; border-radius: 18px; font-size: 14px; }
+
+/* ——— Panels & CTAs ——— */
+.k-panel { background: #333; border-radius: 15px; padding: 60px; text-align: center; }
+.k-panel h3 { font-size: 36px; font-weight: 400; color: #0093FC; line-height: 1.4; max-width: 620px; margin: 0 auto 30px; }
+.k-panel h3 b { font-weight: 700; }
+
+.k-banner { position: relative; margin: 80px 0; }
+.k-banner-rails { position: relative; display: flex; justify-content: space-between; gap: 40px; align-items: center; }
+.k-banner-img { width: 283px; height: 365px; background-size: cover; background-position: center; flex-shrink: 0; }
+.k-banner-img.left { border-radius: 0 15px 15px 0; background-image: url(assets/ecommerce-photo.jpg); }
+.k-banner-img.right { border-radius: 15px 0 0 15px; background-image: url(assets/hero-bg-dark.jpg); }
+.k-banner-center { flex: 1; text-align: center; padding: 0 40px; }
+.k-banner-center h2 { font-size: 30px; line-height: 1.1; color: #fff; font-weight: 400; margin: 0 0 18px; }
+.k-banner-center h2 b { font-weight: 700; }
+.k-banner-center p { font-size: 16px; line-height: 1.5; color: rgb(199,199,199); max-width: 560px; margin: 0 auto 24px; }
+
+/* ——— Clients ——— */
+.k-clients { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 30px; }
+.k-clients .cell { border: 2px solid #333; border-radius: 15px; height: 103px; display: flex; align-items: center; justify-content: center; padding: 12px; }
+.k-clients img { max-height: 60px; max-width: 140px; object-fit: contain; filter: brightness(0) invert(1); opacity: .9; }
+
+/* ——— News cards ——— */
+.k-news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.k-news { position: relative; background: transparent; border: 2px solid #333; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 14px; cursor: pointer; transition: transform .2s, border-color .2s; }
+.k-news:hover { transform: translateY(-4px); border-color: #0093FC; }
+.k-news.selected { background: #333; border-color: #333; }
+.k-news .thumb { border-radius: 15px; height: 209px; background-size: cover; background-position: center; }
+.k-news .chip { display: inline-block; width: fit-content; padding: 3px 14px; border-radius: 16px; background: #0093FC; color: #fff; font-size: 11px; letter-spacing: .04em; }
+.k-news.selected .chip { background: #0093FC; }
+.k-news:not(.selected) .chip { background: #333; color: #0093FC; }
+.k-news h4 { font-size: 16px; font-weight: 700; line-height: 18px; color: #0093FC; margin: 0; }
+.k-news p { font-size: 14px; line-height: 16px; color: #fff; margin: 0; }
+.k-news .arrow { position: absolute; top: 30px; right: 30px; width: 25px; height: 25px; border-radius: 50%; background: linear-gradient(180deg,#0093FC,#272991); display: flex; align-items: center; justify-content: center; }
+.k-news.selected .arrow { background: #202020; }
+.k-news .arrow svg { width: 12px; height: 12px; color: #fff; }
+
+/* ——— Press ——— */
+.k-press { background: #333; border-radius: 15px; padding: 50px 40px; margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.k-press .cell { background: #fff; border-radius: 15px; height: 103px; display: flex; align-items: center; justify-content: center; padding: 12px; }
+.k-press img { max-height: 70px; max-width: 140px; object-fit: contain; }
+
+/* ——— Newsletter ——— */
+.k-newsletter { text-align: center; padding: 0 140px 120px; }
+.k-newsletter h3 { font-size: 30px; line-height: 1.1; color: #0093FC; font-weight: 400; margin: 0 auto 10px; max-width: 610px; }
+.k-newsletter h3 .grad { background: linear-gradient(180deg,#FCC000,#0093FC); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+.k-newsletter-form { display: flex; align-items: center; gap: 0; background: #333; border-radius: 18px; padding: 0; max-width: 722px; margin: 30px auto 20px; height: 35px; padding-right: 0; overflow: hidden; }
+.k-newsletter-form input { background: transparent; border: none; outline: none; flex: 1; padding: 0 20px; color: #fff; font-size: 14px; font-family: var(--koon-font); height: 100%; }
+.k-newsletter-form input::placeholder { color: rgb(199,199,199); }
+.k-newsletter-form .sep { width: 1px; height: 18px; background: #202020; }
+.k-newsletter-form .k-btn-gold { border-radius: 0 18px 18px 0; height: 100%; font-size: 16px; }
+.k-newsletter small { display: flex; align-items: flex-start; gap: 10px; max-width: 720px; margin: 0 auto; font-size: 11px; color: rgb(199,199,199); text-align: left; line-height: 1.5; }
+.k-newsletter .check { width: 15px; height: 15px; border: 1px solid rgb(216,216,231); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+.k-newsletter .check.on { background: #0093FC; border-color: #0093FC; }
+
+/* ——— Footer ——— */
+.k-footer { background: #333; padding: 50px 140px 30px; }
+.k-footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; }
+.k-foot-brand { display: flex; gap: 14px; align-items: flex-start; }
+.k-foot-brand .mark { width: 57px; height: 50px; background: url(assets/logo-mark.png) center/contain no-repeat; flex-shrink: 0; }
+.k-foot-brand .word { font-size: 21px; font-weight: 700; color: #fff; letter-spacing: .02em; }
+.k-foot-brand .tag { font-size: 16px; color: #fff; margin-top: 6px; }
+.k-foot-cta { margin-top: 24px; }
+.k-foot-col h5 { font-size: 16px; font-weight: 600; color: #fff; margin: 0 0 18px; }
+.k-foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.k-foot-col a { color: rgb(199,199,199); font-size: 14px; text-decoration: none; transition: color .2s; }
+.k-foot-col a:hover { color: #fff; }
+.k-foot-contact { font-size: 12px; color: rgb(199,199,199); line-height: 1.5; }
+.k-foot-contact b { display: block; letter-spacing: .06em; color: #0093FC; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; }
+.k-foot-social { display: flex; gap: 10px; margin-top: 14px; }
+.k-foot-social a { width: 35px; height: 35px; border-radius: 8px; background: #0093FC; color: #fff; display: flex; align-items: center; justify-content: center; }
+.k-foot-social svg { width: 18px; height: 18px; }
+.k-foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(216,216,231,.2); font-size: 11px; color: rgb(199,199,199); }
+
+/* ——— Toast ——— */
+.k-toast { position: fixed; right: 24px; bottom: 24px; background: #0093FC; color: #fff; padding: 14px 20px; border-radius: 12px; box-shadow: 0 10px 16px rgba(0,0,0,.5); font-size: 14px; z-index: 999; transform: translateY(80px); opacity: 0; transition: all .3s var(--koon-ease); }
+.k-toast.show { transform: translateY(0); opacity: 1; }
+
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+function Header({ onNav }) {
+  const [mega, setMega] = useState(null);
+  return (
+    <>
+      <div className="k-header">
+        <div className="k-logo" />
+        <div className="k-nav">
+          <span className="k-nav-item" onClick={() => setMega(mega === 'sol' ? null : 'sol')}>Soluções <span className="caret" /></span>
+          <span className="k-nav-item" onClick={() => setMega(mega === 'plat' ? null : 'plat')}>Plataforma <span className="caret" /></span>
+          <span className="k-nav-item" onClick={() => onNav('cases')}>Casos de Sucesso</span>
+          <span className="k-nav-item" onClick={() => onNav('partners')}>Parceiros</span>
+          <span className="k-nav-item" onClick={() => onNav('pricing')}>Preços</span>
+          <span className="k-nav-item" onClick={() => onNav('blog')}>Blog</span>
+        </div>
+        <div className="k-nav-cta">
+          <div className="k-nav-pt"><span className="flag" />PT <span className="caret" style={{ background: 'rgb(199,199,199)' }} /></div>
+          <button className="k-btn-demo" onClick={() => onNav('contact')}>Agendar Demo</button>
+        </div>
+      </div>
+      {mega && <MegaMenu onClose={() => setMega(null)} />}
+    </>
+  );
+}
+
+function MegaMenu({ onClose }) {
+  const pillars = [
+    { title: 'Criação', color: '#0093FC', sub: 'Desenvolvimento de Loja Online · Design UX/UI · Catálogo Digital (PIM) · Aplicação Mobile' },
+    { title: 'Marketing', color: '#0093FC', sub: 'Campanhas Performance · Social Commerce · Loyalty Programs' },
+    { title: 'Otimização', color: '#0093FC', sub: 'SEO · SEM · PPC · Personalização · CRO' },
+    { title: 'Expansão', color: '#0093FC', sub: 'Internacionalização · Marketplaces · Plataforma B2B' },
+  ];
+  return (
+    <div className="k-mega open" onMouseLeave={onClose}>
+      {pillars.map((p, i) => (
+        <div className="k-mega-col" key={i}>
+          <div className="k-mega-card">
+            <div className="k-mega-title" style={{ color: p.color }}>
+              {p.title}
+              <span className="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+            </div>
+            <div className="k-mega-sub">{p.sub}</div>
+          </div>
+        </div>
+      ))}
+      <div className="k-mega-col">
+        <div className="k-mega-img">
+          <div style={{ fontSize: 18, fontWeight: 500, color: '#FCC000', lineHeight: '20px' }}>Soluções diferenciadas de comércio digital</div>
+          <div style={{ fontSize: 14, color: 'rgb(199,199,199)', marginTop: 12 }}>Plataformas digitais de comércio electrónico, B2C e B2B.</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+function Hero() {
+  return (
+    <div className="k-hero">
+      <div className="k-hero-bg" />
+      <div className="k-hero-inner">
+        <h1 className="k-hero-title">Diferentes soluções para uma resposta diferenciada e adaptada</h1>
+        <div className="k-hero-search">
+          <div className="dot" />
+          <input placeholder="Como podemos ajudar?" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+function SolutionsGrid() {
+  const pillars = [
+    { t: 'Criação', d: 'Desenvolvemos soluções inovadoras e funcionais para o teu negócio.', i: 'M4 7h16M4 12h10M4 17h16' },
+    { t: 'Marketing', d: 'Impulsionamos o teu negócio de forma a maximizar resultados e engagement.', i: 'M3 3v18h18M7 14l4-4 4 4 5-5' },
+    { t: 'Otimização', d: 'Melhoramos a visibilidade e conversão para resultados mais eficazes.', i: 'M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z' },
+    { t: 'Expansão', d: 'Aceleramos o crescimento do teu negócio com integração em plataformas globais.', i: 'M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a14 14 0 010 20M12 2a14 14 0 000 20' },
+  ];
+  return (
+    <section className="k-section">
+      <h2 className="k-section-title">A transformação digital do seu <span className="grad">negócio</span></h2>
+      <div className="k-pillars">
+        {pillars.map(p => (
+          <div className="k-pillar" key={p.t}>
+            <div className="k-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={p.i} /></svg>
+            </div>
+            <h4>{p.t}</h4>
+            <p>{p.d}</p>
+            <button className="k-btn k-btn-primary" style={{ width: '100%', height: 35, fontSize: 14 }}>Saber mais</button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
+function TransformBanner() {
+  return (
+    <section className="k-banner">
+      <div className="k-banner-rails">
+        <div className="k-banner-img left" />
+        <div className="k-banner-center">
+          <h2>Coloque o seu negócio na nova era da<br /><b>TRANSFORMAÇÃO DIGITAL</b></h2>
+          <p>O nosso leque de soluções, poderosas e flexíveis, escalam para responder às necessidades específicas da sua empresa, oferecendo uma valiosa ferramenta para a desmaterialização do seu negócio.</p>
+          <button className="k-btn k-btn-outline">Mais informações</button>
+        </div>
+        <div className="k-banner-img right" />
+      </div>
+    </section>
+  );
+}
+
+function DemoCTA({ onClick }) {
+  return (
+    <section className="k-section" style={{ paddingTop: 20 }}>
+      <div className="k-panel">
+        <h3>Soluções mais eficientes para o seu negócio. <b>Vamos falar?</b></h3>
+        <button className="k-btn k-btn-primary" onClick={onClick}>Agendar uma demo</button>
+      </div>
+    </section>
+  );
+}
+
+
+
+function Clients() {
+  const logos = [
+    { src: 'assets/client-utilinx.png', a: 'Utilinx' },
+    { src: 'assets/client-lissistemas.png', a: 'Lissistemas' },
+    { src: 'assets/client-auchan.png', a: 'Auchan' },
+    { src: 'assets/client-sahoco.png', a: 'Sahoco' },
+    { src: 'assets/client-amtools.png', a: 'Amtools' },
+  ];
+  return (
+    <section className="k-section" style={{ paddingTop: 40 }}>
+      <h2 className="k-section-title" style={{ color: '#fff', fontWeight: 400 }}>Casos de <b style={{ fontWeight: 700 }}>sucesso</b></h2>
+      <p className="k-section-sub">Conheça em pormenor alguns casos, de empresas, onde as soluções KOONNECT foram implementadas com sucesso.</p>
+      <div className="k-clients">
+        {logos.map(l => (
+          <div className="cell" key={l.a}><img src={l.src} alt={l.a} /></div>
+        ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: 24, fontSize: 12, color: '#fff', fontWeight: 500, cursor: 'pointer' }}>mais casos de sucesso →</div>
+    </section>
+  );
+}
+
+function News({ selected, onSelect }) {
+  const items = [
+    { tag: 'NOTÍCIAS', t: 'Vantagens de uma área reservada por comunicação com clientes', d: 'A Internet faz parte do nosso dia a dia e permite-nos agilizar muitas das nossas (…)', img: 'assets/news-thumb-2.jpg' },
+    { tag: 'ARTIGOS', t: 'Como criar uma loja online', d: 'Ter uma loja online poderá ser sinónimo de conquistar novos clientes, aumentar o volume de negócios, expandir para (…)', img: 'assets/news-thumb-1.jpg' },
+    { tag: 'NOTÍCIAS', t: 'Web summit: aqui vamos nós pela segunda vez', d: 'Depois de em 2018 termos estado presente no programa ALPHA, este ano repetimos (…)', img: 'assets/news-thumb-3.png' },
+  ];
+  return (
+    <section className="k-section" style={{ paddingTop: 40 }}>
+      <h2 className="k-section-title" style={{ color: '#0093FC' }}>Notícias e <span className="grad">atualizações</span></h2>
+      <div className="k-news-grid">
+        {items.map((n, i) => (
+          <div className={`k-news ${selected === i ? 'selected' : ''}`} key={i} onClick={() => onSelect(i)}>
+            <div className="thumb" style={{ backgroundImage: `url(${n.img})` }} />
+            <span className="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+            <span className="chip">{n.tag}</span>
+            <h4>{n.t}</h4>
+            <p>{n.d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Press() {
+  const logos = [
+    { src: 'assets/press-002.png', a: 'Press 1' },
+    { src: 'assets/press-beta.png', a: 'Beta-i' },
+    { src: 'assets/press-001.jpg', a: 'Press 2' },
+    { src: 'assets/press-jornal-negocios.jpg', a: 'Jornal de Negócios' },
+  ];
+  return (
+    <section className="k-section" style={{ paddingTop: 40 }}>
+      <h2 className="k-section-title" style={{ color: '#fff', fontWeight: 400 }}>Imprensa e <b style={{ fontWeight: 700 }}>reconhecimento</b></h2>
+      <p className="k-section-sub">O que dizem de nós e onde já estivemos.</p>
+      <div className="k-press">
+        {logos.map(l => <div className="cell" key={l.a}><img src={l.src} alt={l.a} /></div>)}
+      </div>
+    </section>
+  );
+}
+
+function Newsletter({ onSubscribe }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  return (
+    <section className="k-newsletter">
+      <h3>Registe-se para receber sempre informações em <span className="grad">primeira mão</span></h3>
+      <div className="k-newsletter-form">
+        <input placeholder="Nome" value={name} onChange={e => setName(e.target.value)} />
+        <div className="sep" />
+        <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+        <button className="k-btn-gold" onClick={() => onSubscribe({ name, email, consent })} style={{ border: 'none', cursor: 'pointer', color: '#fff', fontFamily: 'var(--koon-font)', padding: '0 26px' }}>Subscrever</button>
+      </div>
+      <small>
+        <div className={`check ${consent ? 'on' : ''}`} onClick={() => setConsent(!consent)} style={{ cursor: 'pointer' }} />
+        Consinto que Koonnect trate e utilize os meus dados pessoais fornecidos, para comunicações de marketing e promoções relacionadas com produtos e serviços, de acordo com o descrito nos Termos de uso e privacidade.
+      </small>
+    </section>
+  );
+}
+
+
+
+function Footer() {
+  return (
+    <footer className="k-footer">
+      <div className="k-footer-top">
+        <div>
+          <div className="k-foot-brand">
+            <div className="mark" />
+            <div>
+              <div className="word">KOONNECT</div>
+              <div className="tag">Software E-Commerce</div>
+            </div>
+          </div>
+          <button className="k-btn k-btn-grad k-foot-cta">Agendar Demonstração</button>
+        </div>
+        <div className="k-foot-col">
+          <h5>Apoio ao cliente</h5>
+          <ul>
+            <li><a>Contactos</a></li>
+            <li><a>Quem somos</a></li>
+            <li><a>Termos de uso e privacidade</a></li>
+          </ul>
+          <div className="k-foot-contact" style={{ marginTop: 24 }}>
+            <b>Telefone</b>(+351) 244 108 310
+          </div>
+          <div className="k-foot-contact" style={{ marginTop: 10 }}>
+            <b>E-mail</b>info@koonnect.com
+          </div>
+        </div>
+        <div className="k-foot-col">
+          <h5>Mais informações</h5>
+          <ul>
+            <li><a>Casos de sucesso</a></li>
+            <li><a>Parceiros</a></li>
+            <li><a>Preços</a></li>
+            <li><a>Quem somos</a></li>
+            <li><a>Conteúdos</a></li>
+            <li><a>Contactos</a></li>
+          </ul>
+        </div>
+        <div className="k-foot-col">
+          <h5>Plataforma</h5>
+          <ul>
+            <li><a>E-commerce Framework</a></li>
+            <li><a>Canais de Venda</a></li>
+            <li><a>Marketing & Vendas</a></li>
+            <li><a>Inteligência Artificial</a></li>
+            <li><a>Operações</a></li>
+          </ul>
+        </div>
+        <div className="k-foot-col">
+          <h5>Soluções</h5>
+          <ul>
+            <li><a>Criação</a></li>
+            <li><a>Marketing</a></li>
+            <li><a>Otimização</a></li>
+            <li><a>Expansão</a></li>
+            <li><a>Gestão</a></li>
+          </ul>
+          <div style={{ marginTop: 20, fontSize: 12, color: 'rgb(199,199,199)' }}>Siga-nos nas redes!</div>
+          <div className="k-foot-social">
+            <a aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1 .5-2 2-2h2V1h-3c-3 0-5 2-5 5v4H6v4h3v8h4z"/></svg></a>
+            <a aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div className="k-foot-bottom">
+        <div>© 2025 Todos os direitos reservados — Havidanainternet, Lda (NIPC: 509856446)</div>
+        <div>zenn.</div>
+      </div>
+    </footer>
+  );
+}
+
+
+function ContactPage({ onBack }) {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', msg: '', consent: false });
+  const [sent, setSent] = useState(false);
+  const F = (k) => ({ value: form[k], onChange: e => setForm({ ...form, [k]: e.target.value }) });
+  return (
+    <div style={{ background: '#202020' }}>
+      <div style={{ position: 'relative', height: 523, background: 'url(assets/hero-bg-dark.jpg) center/cover' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgb(51,51,51), rgba(51,51,51,.4))' }} />
+        <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto', textAlign: 'center', padding: '180px 40px 0' }}>
+          <div style={{ fontSize: 11, letterSpacing: '.06em', textTransform: 'uppercase', color: '#FCC000' }}>Agende já a sua demo</div>
+          <h1 style={{ fontSize: 44, lineHeight: '55px', color: '#fff', fontWeight: 400, marginTop: 18 }}>Estamos sempre prontos para o ajudar.</h1>
+        </div>
+      </div>
+      <div style={{ maxWidth: 1140, margin: '-200px auto 0', position: 'relative', background: '#202020', borderRadius: 15, boxShadow: '0 0 20px #000', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 592, overflow: 'hidden' }}>
+        <div style={{ background: '#333', padding: '50px 52px', display: 'flex', flexDirection: 'column', gap: 26 }}>
+          <h3 style={{ fontSize: 24, fontWeight: 500, color: '#fff', margin: 0 }}>Como nos contactar</h3>
+          <ContactRow icon="phone" label="Contacto:" value={<>+351 244 108 310<br /><small style={{ color: 'rgb(199,199,199)', fontSize: 12 }}>(Chamada para a rede fixa nacional)</small></>} />
+          <ContactRow icon="mail" label="E-mail:" value="info@koonnect.com" />
+          <ContactRow icon="map" label="Onde nos encontrar" value="Rua Dr. José Gonçalves, 61 — Piso 0, Loja 5 — 2410-121 Leiria, PORTUGAL" />
+          <ContactRow icon="clock" label="Quando o podemos atender:" value={<>2.ª a 6.ª feira<br />9:00 às 13:00 e das 14:00 às 18:00</>} />
+        </div>
+        <div style={{ padding: '50px 52px' }}>
+          <div style={{ fontSize: 16, color: '#fff' }}>Alguma questão adicional, não hesite em contactar-nos.</div>
+          <div style={{ fontSize: 14, color: 'rgb(199,199,199)', marginTop: 8, marginBottom: 20 }}>Deixe a sua mensagem e entraremos em contacto o mais breve possível.</div>
+          <Field placeholder="Nome*" {...F('name')} />
+          <Field placeholder="Introduza o seu email*" {...F('email')} />
+          <Field placeholder="Telefone" {...F('phone')} />
+          <Field placeholder="Onde trabalha?" {...F('company')} />
+          <textarea placeholder="Descreva o seu pedido, dúvida, questão" {...F('msg')} style={{ width: '100%', marginTop: 10, padding: 14, background: '#333', border: 'none', borderRadius: 10, color: '#fff', fontFamily: 'var(--koon-font)', fontSize: 14, minHeight: 60, resize: 'vertical' }} />
+          <label style={{ display: 'flex', gap: 10, marginTop: 12, alignItems: 'flex-start', cursor: 'pointer' }}>
+            <input type="checkbox" checked={form.consent} onChange={e => setForm({ ...form, consent: e.target.checked })} style={{ marginTop: 2 }} />
+            <small style={{ fontSize: 12, color: 'rgb(199,199,199)', lineHeight: '16px', opacity: .8 }}>Consinto que a Koonnect, trate e utilize os meus dados pessoais fornecidos, de acordo com o descrito nos Termos de privacidade</small>
+          </label>
+          <button className="k-btn k-btn-primary" style={{ width: '100%', marginTop: 18, height: 36, fontSize: 14, fontWeight: 500 }} onClick={() => setSent(true)}>{sent ? 'Pedido enviado ✓' : 'Enviar pedido'}</button>
+        </div>
+      </div>
+      <div style={{ marginTop: 100, cursor: 'pointer', padding: '30px 140px', fontSize: 14, color: '#0093FC' }} onClick={onBack}>← Voltar</div>
+    </div>
+  );
+}
+
+function Field(props) {
+  return <input {...props} style={{ width: '100%', height: 38, padding: '0 16px', background: '#333', border: 'none', borderRadius: 10, color: '#fff', fontFamily: 'var(--koon-font)', fontSize: 14, marginTop: 10, outline: 'none' }} />;
+}
+
+function ContactRow({ icon, label, value }) {
+  const icons = {
+    phone: 'M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z',
+    mail: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 0l8 7 8-7',
+    map: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0zM12 7a3 3 0 100 6 3 3 0 000-6z',
+    clock: 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 5v5l3 2',
+  };
+  return (
+    <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start' }}>
+      <div style={{ width: 35, height: 35, background: '#0093FC', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 20, height: 20 }}><path d={icons[icon]} /></svg>
+      </div>
+      <div>
+        <div style={{ fontSize: 16, fontWeight: 500, color: '#fff' }}>{label}</div>
+        <div style={{ fontSize: 14, color: 'rgb(199,199,199)', marginTop: 4, lineHeight: 1.5 }}>{value}</div>
+      </div>
+    </div>
+  );
+}
+
+
+
+function App() {
+  const [page, setPage] = useState('home');
+  const [selectedNews, setSelectedNews] = useState(1);
+  const [toast, setToast] = useState(null);
+  const showToast = (msg) => { setToast(msg); setTimeout(() => setToast(null), 2400); };
+  if (page === 'contact') return (
+    <>
+      <Header onNav={setPage} />
+      <ContactPage onBack={() => setPage('home')} />
+      <Footer />
+    </>
+  );
+  return (
+    <div data-screen-label="01 Home">
+      <Header onNav={(p) => p === 'contact' ? setPage('contact') : showToast(`Ir para: ${p}`)} />
+      <Hero />
+      <SolutionsGrid />
+      <TransformBanner />
+      <DemoCTA onClick={() => setPage('contact')} />
+      <Clients />
+      <News selected={selectedNews} onSelect={setSelectedNews} />
+      <Press />
+      <Newsletter onSubscribe={({ email, consent }) => showToast(consent && email ? `Subscrito: ${email}` : 'Preencha o email e aceite os termos')} />
+      <Footer />
+      {toast && <div className="k-toast show">{toast}</div>}
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

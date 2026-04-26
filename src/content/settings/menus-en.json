@@ -1,0 +1,34 @@
+{
+  "locale": "en",
+  "nav": {
+    "solutionsLabel": "Solutions",
+    "platformLabel": "Platform",
+    "directLinks": [
+      { "label": "About", "href": "/about", "enabled": true },
+      { "label": "Pricing", "href": "/pricing", "enabled": true },
+      { "label": "Blog", "href": "/blog", "enabled": true }
+    ],
+    "demoCta": { "label": "Request demo", "href": "/contact" }
+  },
+  "footer": {
+    "followLabel": "Follow the build",
+    "columns": [
+      {
+        "title": "Starter",
+        "links": [
+          { "label": "About", "href": "/about" },
+          { "label": "Pricing", "href": "/pricing" }
+        ]
+      },
+      {
+        "title": "Content",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Quality", "href": "/quality" }
+        ]
+      }
+    ],
+    "demoCta": { "label": "Get in touch", "href": "/contact" },
+    "copyright": "Koonnect Starter. All rights reserved."
+  }
+}

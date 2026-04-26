@@ -1,0 +1,27 @@
+---
+type Props = {
+  data: {
+    title: string[];
+    description: string;
+    primaryCta: { label: string; href: string };
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<section class="container-shell py-14 md:py-20">
+  <div class="surface-card border-[var(--koon-gold)]/25 p-8 md:p-10">
+    <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+      <div class="space-y-4">
+        <h2 class="text-4xl font-semibold leading-tight text-white md:text-5xl">
+          {data.title.map((line) => <span class="block">{line}</span>)}
+        </h2>
+        <p class="max-w-2xl text-lg leading-8 text-white/65">{data.description}</p>
+      </div>
+      <a href={data.primaryCta.href} class="inline-flex rounded-full bg-[var(--koon-blue)] px-6 py-3 text-sm font-semibold text-white no-underline shadow-[0_0_20px_rgba(0,147,252,0.35)]">
+        {data.primaryCta.label}
+      </a>
+    </div>
+  </div>
+</section>

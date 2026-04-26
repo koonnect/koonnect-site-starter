@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>body{margin:0;padding:24px;background:var(--koon-bg);color:var(--koon-fg);font-family:var(--koon-font);}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.btn{border:none;cursor:pointer;font-family:var(--koon-font);font-size:14px;line-height:1;padding:0 24px;height:35px;border-radius:18px;color:#fff;}
+.btn-primary{background:#0093FC;}
+.btn-primary:hover{filter:brightness(1.08);}
+.btn-secondary{background:transparent;border:1px solid #fff;}
+.btn-gold{background:#FCC000;}
+.btn-grad{background:linear-gradient(180deg,#0093FC 0%,#272991 100%);}
+.btn-lg{height:45px;padding:0 32px;font-size:16px;border-radius:22px;}
+.btn-outline-muted{background:transparent;border:1px solid rgb(199,199,199);color:#fff;}
+.lbl{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--koon-fg-muted);width:100%;margin-top:6px;}
+</style></head><body class="koon">
+<div class="row">
+  <button class="btn btn-primary">Agendar Demo</button>
+  <button class="btn btn-primary btn-lg">Agendar uma demo</button>
+  <button class="btn btn-secondary">Mais informações</button>
+  <button class="btn btn-outline-muted">PT ▾</button>
+  <button class="btn btn-gold">Subscrever</button>
+  <button class="btn btn-grad">Agendar Demonstração</button>
+</div>
+<div class="lbl">primary · primary-lg · secondary · outline-muted · gold · gradient (blue→navy)</div>
+</body></html>

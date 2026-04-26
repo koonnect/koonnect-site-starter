@@ -1,0 +1,8 @@
+# Koonnect Site Starter
+
+This is the publishing-layer starter for Koonnect CMS.
+
+- Framework: Astro
+- Content source of truth: src/content
+- Editorial engine: external control plane
+- Preview model: ai-edit branches

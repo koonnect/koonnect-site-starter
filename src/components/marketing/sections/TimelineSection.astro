@@ -1,0 +1,27 @@
+---
+import SectionShell from "../layout/SectionShell.astro";
+
+type Props = {
+  data: {
+    eyebrow: string;
+    title: string[];
+    steps: { title: string; text: string }[];
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<SectionShell eyebrow={data.eyebrow} title={data.title}>
+  <div class="grid gap-4 lg:grid-cols-4">
+    {data.steps.map((step, index) => (
+      <article class="surface-card relative p-6">
+        <div class="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--koon-blue)]/14 text-sm font-semibold text-[var(--koon-blue)]">
+          {(index + 1).toString().padStart(2, "0")}
+        </div>
+        <h3 class="text-xl font-semibold text-white">{step.title}</h3>
+        <p class="mt-4 text-sm leading-7 text-white/65">{step.text}</p>
+      </article>
+    ))}
+  </div>
+</SectionShell>

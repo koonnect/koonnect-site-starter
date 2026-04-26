@@ -1,0 +1,31 @@
+---
+import SectionHeading from "../primitives/SectionHeading.astro";
+
+type Props = {
+  data: {
+    eyebrow: string;
+    title: string[];
+    description: string;
+    primaryCta: { label: string; href: string };
+    secondaryCta?: { label: string; href: string };
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<section class="container-shell py-18 text-center md:py-24">
+  <div class="mx-auto max-w-4xl space-y-8">
+    <SectionHeading eyebrow={data.eyebrow} title={data.title} description={data.description} centered />
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href={data.primaryCta.href} class="rounded-full bg-[var(--koon-blue)] px-6 py-3 text-sm font-semibold text-white no-underline shadow-[0_0_20px_rgba(0,147,252,0.35)]">
+        {data.primaryCta.label}
+      </a>
+      {data.secondaryCta && (
+        <a href={data.secondaryCta.href} class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 no-underline hover:text-white">
+          {data.secondaryCta.label}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

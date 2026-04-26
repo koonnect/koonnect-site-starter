@@ -1,0 +1,23 @@
+---
+import SectionShell from "../layout/SectionShell.astro";
+
+type Props = {
+  data: {
+    eyebrow: string;
+    title: string;
+    logos: { name: string; src: string; alt: string }[];
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<SectionShell eyebrow={data.eyebrow} title={[data.title]}>
+  <div class="grid gap-4 rounded-[24px] border border-white/8 bg-white/[0.02] p-4 md:grid-cols-2 xl:grid-cols-4">
+    {data.logos.map((logo) => (
+      <div class="surface-card flex min-h-[104px] items-center justify-center p-6">
+        <img src={logo.src} alt={logo.alt} title={logo.name} class="max-h-10 w-auto opacity-80" />
+      </div>
+    ))}
+  </div>
+</SectionShell>

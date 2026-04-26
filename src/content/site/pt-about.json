@@ -1,0 +1,28 @@
+{
+  "locale": "pt",
+  "pageKey": "about",
+  "routeSlug": "sobre",
+  "siteName": "Koonnect Starter",
+  "metadata": {
+    "title": "Sobre — Koonnect Starter",
+    "description": "Pagina institucional base para apresentar a empresa, a proposta de valor e o contexto da marca."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Pagina institucional",
+    "title": ["Sobre a marca", "e o produto"],
+    "description": "Este starter inclui um modelo simples para paginas institucionais, com hero, blocos de corpo e CTA final.",
+    "primaryCta": { "label": "Entrar em contacto", "href": "/pt/contactos" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "About page media" }
+  },
+  "body": [
+    { "title": "Posicionamento", "text": "Usa esta pagina para explicar quem e a marca, porque existe e qual o tipo de cliente que serve melhor." },
+    { "title": "Credibilidade", "text": "Mantem copy escaneavel, blocos curtos e provas que possam evoluir sem tocar no layout." }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Queres transformar", "esta pagina no teu tenant?"],
+    "description": "Substitui o conteudo demo e mantem a estrutura CMS-ready.",
+    "primaryCta": { "label": "Ver blog", "href": "/pt/blog" }
+  }
+}

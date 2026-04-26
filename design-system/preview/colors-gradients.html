@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:var(--koon-bg);color:var(--koon-fg);font-family:var(--koon-font);}
+  .row{display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;}
+  .g{flex:1;min-width:0;border-radius:12px;overflow:hidden;}
+  .sw{height:100px;border-radius:12px;}
+  .lbl{padding:8px 2px 0;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--koon-fg-muted);}
+  .val{font-size:11px;color:var(--koon-fg);}
+</style></head><body class="koon">
+<div class="row">
+  <div class="g"><div class="sw" style="background:linear-gradient(180deg,#FCC000 0%,#0093FC 100%)"></div><div class="lbl">Gradient · Signature</div><div class="val">gold → blue (180°)</div></div>
+  <div class="g"><div class="sw" style="background:linear-gradient(180deg,#0093FC 0%,#272991 100%)"></div><div class="lbl">Gradient · Blue</div><div class="val">blue → navy (180°)</div></div>
+  <div class="g"><div class="sw" style="background:linear-gradient(180deg,#202020 0%,rgba(98,98,98,0) 100%)"></div><div class="lbl">Protection</div><div class="val">bg → transparent</div></div>
+  <div class="g"><div class="sw" style="background:rgba(255,255,255,.05);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08)"></div><div class="lbl">Glass</div><div class="val">rgba(255,255,255,.05) + blur(16)</div></div>
+</div>
+</body></html>

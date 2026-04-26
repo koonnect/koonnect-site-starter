@@ -1,0 +1,63 @@
+---
+import type { Locale } from "../../../lib/routing/locales";
+
+type Props = {
+  locale: Locale;
+  menus?: {
+    footer?: {
+      followLabel: string;
+      columns: { title: string; links: { label: string; href: string }[] }[];
+      demoCta: { label: string; href: string };
+      copyright: string;
+    };
+  };
+  certifications?: {
+    items?: { id: string; name: string; logo: string; url?: string }[];
+  };
+};
+
+const { locale, menus, certifications } = Astro.props;
+const footer = menus?.footer;
+---
+
+<footer class="mt-20 border-t border-white/10 bg-black/40">
+  <div class="container-shell space-y-10 py-12">
+    <div class="grid gap-8 lg:grid-cols-[1.4fr_repeat(3,minmax(0,1fr))]">
+      <div class="space-y-5">
+        <div class="text-sm uppercase tracking-[0.2em] text-white/55">
+          {footer?.followLabel ?? "Follow"}
+        </div>
+        <a
+          href={`/${locale}${footer?.demoCta.href ?? "/contact"}`}
+          class="inline-flex rounded-full bg-[var(--koon-blue)] px-5 py-3 text-sm font-semibold text-white no-underline shadow-[0_0_20px_rgba(0,147,252,0.35)]"
+        >
+          {footer?.demoCta.label ?? "Book demo"}
+        </a>
+        {certifications?.items?.length ? (
+          <div class="flex flex-wrap gap-3">
+            {certifications.items.map((item) => (
+              <img src={item.logo} alt={item.name} class="h-8 w-auto opacity-70" />
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      {footer?.columns?.map((column) => (
+        <div class="space-y-3">
+          <div class="text-sm font-semibold text-white">{column.title}</div>
+          <div class="space-y-2">
+            {column.links.map((link) => (
+              <a href={`/${locale}${link.href}`} class="block text-sm text-white/70 no-underline hover:text-white">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="border-t border-white/10 pt-6 text-sm text-white/50">
+      © {new Date().getFullYear()} {footer?.copyright ?? "All rights reserved."}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,137 @@
+/* =========================================================
+   KOONNECT DESIGN SYSTEM — Colors & Type
+   Source: Koonnect'25 dark-mode marketing site (Figma)
+   Brand: E-commerce & AI-enablement platform · Portuguese
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* --- BRAND COLORS --- */
+  --koon-blue:        rgb(0, 147, 252);   /* Primary blue — links, CTAs, accents */
+  --koon-blue-deep:   rgb(39, 41, 145);   /* Deep navy — gradient bottom, logo */
+  --koon-blue-press:  rgb(0, 113, 188);   /* Pressed/darker blue */
+  --koon-gold:        rgb(252, 192, 0);   /* Primary gold — highlights, secondary CTA */
+  --koon-gold-bright: rgb(255, 230, 46);  /* Bright yellow — accents (logo, flag) */
+  --koon-magenta:     rgb(215, 36, 180);  /* Magenta (logo variant) */
+
+  /* Signature gradient — appears on highlight fills + pill CTAs */
+  --koon-gradient:       linear-gradient(180deg, var(--koon-gold) 0%, var(--koon-blue) 100%);
+  --koon-gradient-text:  linear-gradient(180deg, var(--koon-gold) 0%, var(--koon-blue) 100%);
+  --koon-gradient-blue:  linear-gradient(180deg, var(--koon-blue) 0%, var(--koon-blue-deep) 100%);
+
+  /* --- NEUTRALS (DARK MODE — default) --- */
+  --koon-bg:          rgb(32, 32, 32);    /* Page background */
+  --koon-bg-raised:   rgb(51, 51, 51);    /* Cards, headers, footer */
+  --koon-bg-deep:     rgb(15, 15, 15);    /* Extra-dark pockets */
+  --koon-surface:     rgba(255, 255, 255, 0.05); /* Glass search pill, overlays */
+
+  --koon-border:      rgb(51, 51, 51);    /* 2px outline cards */
+  --koon-border-soft: rgb(62, 67, 71);    /* Subtle dividers */
+  --koon-border-hair: rgba(216, 216, 231, 0.3);
+
+  --koon-fg:          rgb(255, 255, 255); /* Primary text on dark */
+  --koon-fg-muted:    rgb(199, 199, 199); /* Secondary text, placeholders */
+  --koon-fg-subtle:   rgb(130, 130, 130);
+  --koon-fg-inverse:  rgb(32, 32, 32);    /* Text on white cards */
+
+  /* --- SEMANTIC --- */
+  --koon-success:     rgb(105, 150, 53);
+  --koon-error:       rgb(237, 76, 92);
+  --koon-info:        var(--koon-blue);
+  --koon-warning:     var(--koon-gold);
+
+  /* --- SHADOWS --- */
+  --koon-shadow-sm:   0 0 15px rgba(0, 0, 0, 0.10);
+  --koon-shadow-md:   0 10px 16px rgba(0, 0, 0, 0.50);
+  --koon-shadow-lg:   0 0 20px rgb(0, 0, 0);
+  --koon-shadow-glow: 0 0 15px rgb(32, 32, 32);
+
+  /* --- RADII --- */
+  --koon-r-xs:  2px;   /* checkboxes */
+  --koon-r-sm:  10px;  /* secondary cards */
+  --koon-r-md:  15px;  /* primary cards, images */
+  --koon-r-pill: 18px; /* buttons, chips, search */
+  --koon-r-full: 9999px;
+
+  /* --- SPACING (4-point scale) --- */
+  --koon-sp-1: 4px;
+  --koon-sp-2: 8px;
+  --koon-sp-3: 12px;
+  --koon-sp-4: 16px;
+  --koon-sp-5: 20px;
+  --koon-sp-6: 24px;
+  --koon-sp-8: 32px;
+  --koon-sp-10: 40px;
+  --koon-sp-12: 48px;
+  --koon-sp-16: 64px;
+  --koon-sp-20: 80px;     /* header height */
+  --koon-sp-container: 140px; /* page side padding on 1440 */
+
+  /* --- TYPE --- */
+  --koon-font:        'Poppins', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --koon-h1-size: 48px;   --koon-h1-weight: 800;   --koon-h1-lh: 1.05;
+  --koon-h2-size: 44px;   --koon-h2-weight: 400;   --koon-h2-lh: 1.25;
+  --koon-h3-size: 36px;   --koon-h3-weight: 400;   --koon-h3-lh: 1.4;
+  --koon-h4-size: 30px;   --koon-h4-weight: 700;   --koon-h4-lh: 1.15;
+  --koon-h5-size: 24px;   --koon-h5-weight: 500;   --koon-h5-lh: 1.3;
+  --koon-h6-size: 21px;   --koon-h6-weight: 500;   --koon-h6-lh: 1.2;
+
+  --koon-body-lg-size: 18px;  --koon-body-lg-lh: 1.5;
+  --koon-body-size:    16px;  --koon-body-lh:    1.5;
+  --koon-body-sm-size: 14px;  --koon-body-sm-lh: 1.35;
+  --koon-caption-size: 12px;  --koon-caption-lh: 1.4;
+  --koon-micro-size:   11px;  --koon-micro-lh:   1.0;
+  --koon-micro-tracking: 0.04em;
+
+  /* --- MOTION --- */
+  --koon-ease:   cubic-bezier(.2, .8, .2, 1);
+  --koon-dur:    180ms;
+  --koon-dur-lg: 320ms;
+}
+
+/* =========================================================
+   Semantic element defaults — use inside .koon scope
+   ========================================================= */
+
+.koon,
+.koon * {
+  box-sizing: border-box;
+}
+
+.koon {
+  background: var(--koon-bg);
+  color: var(--koon-fg);
+  font-family: var(--koon-font);
+  font-size: var(--koon-body-size);
+  line-height: var(--koon-body-lh);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.koon h1, .koon .h1 { font-size: var(--koon-h1-size); font-weight: var(--koon-h1-weight); line-height: var(--koon-h1-lh); margin: 0; }
+.koon h2, .koon .h2 { font-size: var(--koon-h2-size); font-weight: var(--koon-h2-weight); line-height: var(--koon-h2-lh); margin: 0; }
+.koon h3, .koon .h3 { font-size: var(--koon-h3-size); font-weight: var(--koon-h3-weight); line-height: var(--koon-h3-lh); margin: 0; }
+.koon h4, .koon .h4 { font-size: var(--koon-h4-size); font-weight: var(--koon-h4-weight); line-height: var(--koon-h4-lh); margin: 0; }
+.koon h5, .koon .h5 { font-size: var(--koon-h5-size); font-weight: var(--koon-h5-weight); line-height: var(--koon-h5-lh); margin: 0; }
+.koon h6, .koon .h6 { font-size: var(--koon-h6-size); font-weight: var(--koon-h6-weight); line-height: var(--koon-h6-lh); margin: 0; }
+
+.koon p, .koon .p  { font-size: var(--koon-body-size); line-height: var(--koon-body-lh); margin: 0; color: var(--koon-fg); }
+.koon .p-muted     { color: var(--koon-fg-muted); }
+.koon .body-lg     { font-size: var(--koon-body-lg-size); line-height: var(--koon-body-lg-lh); }
+.koon .body-sm     { font-size: var(--koon-body-sm-size); line-height: var(--koon-body-sm-lh); }
+.koon .caption     { font-size: var(--koon-caption-size); line-height: var(--koon-caption-lh); color: var(--koon-fg-muted); }
+.koon .eyebrow     { font-size: var(--koon-micro-size); letter-spacing: var(--koon-micro-tracking); text-transform: uppercase; color: var(--koon-blue); }
+
+.koon a            { color: var(--koon-blue); text-decoration: none; transition: opacity var(--koon-dur) var(--koon-ease); }
+.koon a:hover      { opacity: 0.75; }
+
+/* Gradient text — used on key hero words */
+.koon .gradient-text {
+  background: var(--koon-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

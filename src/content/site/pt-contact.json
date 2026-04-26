@@ -1,0 +1,22 @@
+{
+  "locale": "pt",
+  "pageKey": "contact",
+  "routeSlug": "contactos",
+  "siteName": "Koonnect Starter",
+  "metadata": {
+    "title": "Contactos — Koonnect Starter",
+    "description": "Pagina base para contacto, formularios e CTA de demo."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Pagina de contacto",
+    "title": ["Contactos e demo", "sem backoffice pesado"],
+    "description": "Liga esta pagina a um webhook, form provider ou iframe e mantem toda a configuracao editorial controlada por schema.",
+    "primaryCta": { "label": "Enviar pedido", "href": "#form" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Contact page media" }
+  },
+  "body": [
+    { "title": "Webhook-ready", "text": "O starter assume que os formularios sao simples e integrados por endpoint configuravel." },
+    { "title": "Multi-locale", "text": "Mensagens de sucesso e erro podem variar por locale sem duplicar layout." }
+  ]
+}

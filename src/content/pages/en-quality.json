@@ -1,0 +1,58 @@
+{
+  "locale": "en",
+  "pageKey": "quality",
+  "routeSlug": "quality",
+  "status": "published",
+  "templateId": "quality-page",
+  "metadata": {
+    "title": "Quality — Koonnect Starter",
+    "description": "Template page for quality, certifications or standards."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Approved template",
+    "title": ["Quality page", "ready to reuse"],
+    "description": "This template proves the flow of structured pages created without touching arbitrary layout code.",
+    "primaryCta": { "label": "Talk to the team", "href": "/en/contact" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Quality template media" }
+  },
+  "sections": [
+    {
+      "sectionId": "feature-grid",
+      "eyebrow": "Pillars",
+      "title": ["Editorial governance", "without surprises"],
+      "description": "Every template-created page starts with schema, preview and a predictable route.",
+      "items": [
+        { "title": "Schema-first", "description": "Content shapes are validated before reaching the renderer." },
+        { "title": "Predictable routes", "description": "Locale and slug come from the entry, not from the layout." },
+        { "title": "Reusable visuals", "description": "Catalog sections keep one-off layouts from multiplying." }
+      ]
+    },
+    {
+      "sectionId": "timeline",
+      "eyebrow": "Process",
+      "title": ["From request", "to publish"],
+      "steps": [
+        { "title": "Draft", "text": "Editor opens a change set in the mini app." },
+        { "title": "Validate", "text": "Schema + targets ensure the diff is safe." },
+        { "title": "Preview", "text": "A preview branch renders the change before publish." },
+        { "title": "Publish", "text": "Approved change set merges into the tenant content." }
+      ]
+    },
+    {
+      "sectionId": "faq",
+      "eyebrow": "FAQ",
+      "title": ["Quick answers"],
+      "items": [
+        { "question": "Can I add a one-off section?", "answer": "Only by registering it in the catalog first — that keeps tenants compatible with the CMS." },
+        { "question": "What about hardcoded copy?", "answer": "Editorial copy lives in src/content. The renderer should not contain literals." }
+      ]
+    }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Use this template", "as a proof of concept"],
+    "description": "The mini app and MCP should create pages from this model, not from arbitrary free-form HTML.",
+    "primaryCta": { "label": "Back to home", "href": "/en" }
+  }
+}

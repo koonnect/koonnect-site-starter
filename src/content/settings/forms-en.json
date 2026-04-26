@@ -1,0 +1,11 @@
+{
+  "locale": "en",
+  "forms": {
+    "contact": {
+      "type": "webhook",
+      "endpoint": null,
+      "successMessage": "Message sent.",
+      "errorMessage": "We could not submit the form."
+    }
+  }
+}

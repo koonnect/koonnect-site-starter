@@ -1,0 +1,23 @@
+{
+  "locale": "pt",
+  "pageKey": "pricing",
+  "routeSlug": "precos",
+  "siteName": "Koonnect Starter",
+  "metadata": {
+    "title": "Precos — Koonnect Starter",
+    "description": "Pagina base para tiers, licencas e ofertas comerciais."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Pagina de pricing",
+    "title": ["Pricing estruturado", "para converter melhor"],
+    "description": "Mantem os tiers, bullets e CTAs em conteudo editavel, e deixa o design livre para o tenant.",
+    "primaryCta": { "label": "Pedir demo", "href": "/pt/contactos" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Pricing page media" }
+  },
+  "body": [
+    { "title": "Base", "text": "Entrada para equipas pequenas com estrutura simplificada e onboarding leve." },
+    { "title": "Growth", "text": "Para equipas em crescimento que precisam de mais secções, mais conteudo e mais governance." },
+    { "title": "Enterprise", "text": "Para tenants que exigem integrações, governance editorial e mais custom visual." }
+  ]
+}

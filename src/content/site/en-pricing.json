@@ -1,0 +1,23 @@
+{
+  "locale": "en",
+  "pageKey": "pricing",
+  "routeSlug": "pricing",
+  "siteName": "Koonnect Starter",
+  "metadata": {
+    "title": "Pricing — Koonnect Starter",
+    "description": "Base pricing page for tiers, packages and commercial offers."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Pricing page",
+    "title": ["Structured pricing", "for clearer conversion"],
+    "description": "Keep pricing tiers, bullets and CTAs in editable content while leaving the visual language free for each tenant.",
+    "primaryCta": { "label": "Request demo", "href": "/en/contact" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Pricing page media" }
+  },
+  "body": [
+    { "title": "Base", "text": "Entry level package for small teams with a lightweight structure and onboarding." },
+    { "title": "Growth", "text": "For growing teams that need more sections, more content and stronger governance." },
+    { "title": "Enterprise", "text": "For tenants that require integrations, editorial governance and deeper visual customization." }
+  ]
+}

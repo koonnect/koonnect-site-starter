@@ -1,0 +1,33 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getBlogEntries, getBlogEntry } from "../../../lib/content/blog";
+
+export async function getStaticPaths() {
+  const entries = [...(await getBlogEntries("pt")), ...(await getBlogEntries("en"))];
+  return entries.map((entry) => ({
+    params: { locale: entry.data.locale, slug: entry.data.slug },
+  }));
+}
+
+const locale = Astro.params.locale as "pt" | "en";
+const slug = Astro.params.slug ?? "";
+const entry = await getBlogEntry(locale, slug);
+const { Content } = await render(entry);
+---
+
+<BaseLayout locale={locale} title={entry.data.seo.title} description={entry.data.seo.description}>
+  <article class="container-shell py-16">
+    <div class="mx-auto max-w-3xl space-y-5">
+      <div class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--koon-gold)]">
+        {entry.data.category}
+      </div>
+      <h1 class="text-5xl font-semibold leading-tight text-white">{entry.data.title}</h1>
+      <p class="text-lg leading-8 text-white/65">{entry.data.excerpt}</p>
+      <img src={entry.data.heroImage} alt={entry.data.title} class="surface-card h-auto w-full object-cover" />
+    </div>
+    <div class="prose prose-invert mx-auto mt-10 max-w-3xl prose-headings:text-white prose-p:text-white/75">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

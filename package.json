@@ -1,0 +1,31 @@
+{
+  "name": "koonnect-site-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "cms:targets": "tsx scripts/generate-content-targets.ts",
+    "cms:validate": "node scripts/cms-validate.mjs",
+    "prebuild": "pnpm cms:targets && pnpm cms:validate",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^6.1.9",
+    "tailwindcss": "^4.2.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

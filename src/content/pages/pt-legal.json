@@ -1,0 +1,53 @@
+{
+  "locale": "pt",
+  "pageKey": "legal",
+  "routeSlug": "legal",
+  "status": "published",
+  "templateId": "legal-page",
+  "metadata": {
+    "title": "Legal — Koonnect Starter",
+    "description": "Pagina template a provar legal-body, contact-panel e logo-strip."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Template legal",
+    "title": ["Termos, privacidade", "e confianca"],
+    "description": "Um layout previsivel para copy de compliance e certificacoes nos varios tenants.",
+    "primaryCta": { "label": "Falar com legal", "href": "/pt/contactos" }
+  },
+  "sections": [
+    {
+      "sectionId": "legal-body",
+      "eyebrow": "Conteudo",
+      "title": ["Politicas em", "linguagem clara"],
+      "blocks": [
+        { "title": "1. Ambito", "text": "Estes termos descrevem como a plataforma e usada por tenants, parceiros e end-users autorizados." },
+        { "title": "2. Tratamento de dados", "text": "Dados pessoais sao tratados com finalidades explicitas e mantidos apenas enquanto a base legal for valida." },
+        { "title": "3. Seguranca", "text": "Os dados em producao sao cifrados em transito e em repouso, com acessos documentados." }
+      ]
+    },
+    {
+      "sectionId": "logo-strip",
+      "eyebrow": "Confianca",
+      "title": "Standards com que alinhamos",
+      "logos": [
+        { "name": "ISO", "src": "/logos/iso.svg", "alt": "ISO" },
+        { "name": "GDPR", "src": "/logos/gdpr.svg", "alt": "GDPR" },
+        { "name": "SOC", "src": "/logos/soc.svg", "alt": "SOC" },
+        { "name": "AICPA", "src": "/logos/aicpa.svg", "alt": "AICPA" }
+      ]
+    },
+    {
+      "sectionId": "contact-panel",
+      "eyebrow": "Contacto",
+      "title": ["Fala com a nossa", "equipa de compliance"],
+      "description": "Contacta diretamente a equipa certa para legal, privacidade ou vendor.",
+      "details": [
+        { "label": "Email", "value": "legal@koonnect.com", "href": "mailto:legal@koonnect.com" },
+        { "label": "Telefone", "value": "+351 210 000 000", "href": "tel:+351210000000" },
+        { "label": "Morada", "value": "Lisboa, Portugal" }
+      ],
+      "primaryCta": { "label": "Abrir formulario", "href": "/pt/contactos" }
+    }
+  ]
+}

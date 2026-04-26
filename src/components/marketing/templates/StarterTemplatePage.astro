@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+import HeroSplitSection from "../sections/HeroSplitSection.astro";
+import HeroCenteredSection from "../sections/HeroCenteredSection.astro";
+import FeatureGridSection from "../sections/FeatureGridSection.astro";
+import ComparisonTwoColumnSection from "../sections/ComparisonTwoColumnSection.astro";
+import TimelineSection from "../sections/TimelineSection.astro";
+import FaqSection from "../sections/FaqSection.astro";
+import ContactPanelSection from "../sections/ContactPanelSection.astro";
+import LegalBodySection from "../sections/LegalBodySection.astro";
+import LogoStripSection from "../sections/LogoStripSection.astro";
+import CtaBannerSection from "../sections/CtaBannerSection.astro";
+
+type Props = {
+  entry: CollectionEntry<"pages">;
+};
+
+const { entry } = Astro.props;
+const heroSectionId = entry.data.hero.sectionId;
+---
+
+{heroSectionId === "hero-centered"
+  ? <HeroCenteredSection data={entry.data.hero as any} />
+  : <HeroSplitSection data={entry.data.hero as any} />}
+
+{entry.data.sections.map((section) => {
+  switch (section.sectionId) {
+    case "feature-grid":
+      return <FeatureGridSection data={section} />;
+    case "comparison-two-column":
+      return <ComparisonTwoColumnSection data={section} />;
+    case "timeline":
+      return <TimelineSection data={section} />;
+    case "faq":
+      return <FaqSection data={section} />;
+    case "contact-panel":
+      return <ContactPanelSection data={section} />;
+    case "legal-body":
+      return <LegalBodySection data={section} />;
+    case "logo-strip":
+      return <LogoStripSection data={section} />;
+    default:
+      return null;
+  }
+})}
+
+{entry.data.ctaBanner && <CtaBannerSection data={entry.data.ctaBanner} />}

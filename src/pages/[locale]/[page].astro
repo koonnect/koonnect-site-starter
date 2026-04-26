@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StarterTemplatePage from "../../components/marketing/templates/StarterTemplatePage.astro";
+import HeroSplitSection from "../../components/marketing/sections/HeroSplitSection.astro";
+import CtaBannerSection from "../../components/marketing/sections/CtaBannerSection.astro";
+import { getPageEntryByRoute } from "../../lib/content/site";
+
+export async function getStaticPaths() {
+  const [siteEntries, pageEntries] = await Promise.all([
+    getCollection("site", ({ data }) => data.pageKey !== "home"),
+    getCollection("pages"),
+  ]);
+
+  return [...siteEntries, ...pageEntries].map((entry) => ({
+    params: {
+      locale: entry.data.locale,
+      page: entry.data.routeSlug,
+    },
+  }));
+}
+
+const locale = Astro.params.locale as "pt" | "en";
+const routeSlug = Astro.params.page ?? "";
+const entry = await getPageEntryByRoute(locale, routeSlug);
+
+if (!entry) {
+  return Astro.redirect(`/${locale}`);
+}
+
+const templateEntry = "templateId" in entry.data ? (entry as CollectionEntry<"pages">) : null;
+const siteEntry = "body" in entry.data ? (entry as CollectionEntry<"site">) : null;
+---
+
+<BaseLayout locale={locale} title={entry.data.metadata.title} description={entry.data.metadata.description}>
+  {templateEntry ? (
+    <StarterTemplatePage entry={templateEntry} />
+  ) : (
+    <>
+      <HeroSplitSection data={entry.data.hero} />
+      {siteEntry?.data.body?.length ? (
+        <section class="container-shell grid gap-5 py-12 md:grid-cols-2">
+          {siteEntry.data.body.map((section) => (
+            <article class="surface-card p-6">
+              <h2 class="text-2xl font-semibold text-white">{section.title}</h2>
+              <p class="mt-4 text-sm leading-7 text-white/65">{section.text}</p>
+            </article>
+          ))}
+        </section>
+      ) : null}
+      {entry.data.ctaBanner && <CtaBannerSection data={entry.data.ctaBanner} />}
+    </>
+  )}
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+type Props = {
+  eyebrow?: string;
+  title?: string[];
+  description?: string;
+  align?: "left" | "center";
+};
+
+const { eyebrow, title, description, align = "left" } = Astro.props;
+const centered = align === "center";
+---
+
+<section class="container-shell py-14 md:py-20">
+  {(eyebrow || title || description) && (
+    <div class:list={["mb-10 max-w-3xl space-y-4", centered && "mx-auto text-center"]}>
+      {eyebrow && (
+        <div class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--koon-gold)]">
+          {eyebrow}
+        </div>
+      )}
+      {title && (
+        <h2 class="text-4xl font-semibold leading-tight text-white md:text-5xl">
+          {title.map((line) => (
+            <span class="block">{line}</span>
+          ))}
+        </h2>
+      )}
+      {description && <p class="text-lg leading-8 text-white/65">{description}</p>}
+    </div>
+  )}
+  <slot />
+</section>

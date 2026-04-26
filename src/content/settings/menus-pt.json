@@ -1,0 +1,34 @@
+{
+  "locale": "pt",
+  "nav": {
+    "solutionsLabel": "Solucoes",
+    "platformLabel": "Plataforma",
+    "directLinks": [
+      { "label": "Sobre", "href": "/sobre", "enabled": true },
+      { "label": "Precos", "href": "/precos", "enabled": true },
+      { "label": "Blog", "href": "/blog", "enabled": true }
+    ],
+    "demoCta": { "label": "Pedir demo", "href": "/contactos" }
+  },
+  "footer": {
+    "followLabel": "Siga-nos na construcao",
+    "columns": [
+      {
+        "title": "Starter",
+        "links": [
+          { "label": "Sobre", "href": "/sobre" },
+          { "label": "Precos", "href": "/precos" }
+        ]
+      },
+      {
+        "title": "Conteudo",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Qualidade", "href": "/qualidade" }
+        ]
+      }
+    ],
+    "demoCta": { "label": "Entrar em contacto", "href": "/contactos" },
+    "copyright": "Koonnect Starter. Todos os direitos reservados."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "locale": "en",
+  "pageKey": "home",
+  "routeSlug": "home",
+  "siteName": "Koonnect Starter",
+  "metadata": {
+    "title": "Koonnect Starter — Astro-first commercial sites",
+    "description": "Astro starter for multi-tenant commercial sites, ready for conversational CMS, previews and tenant design systems."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Astro starter for Koonnect CMS",
+    "title": ["Commercial sites", "ready to evolve"],
+    "description": "An Astro-first foundation for marketing pages, blog, templates and structured content from day one.",
+    "primaryCta": { "label": "Explore the starter", "href": "/en/about" },
+    "secondaryCta": { "label": "View pricing", "href": "/en/pricing" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Koonnect starter hero" }
+  },
+  "featureGrid": {
+    "sectionId": "feature-grid",
+    "eyebrow": "Base catalog",
+    "title": ["Reusable sections", "without flattening design"],
+    "description": "The starter ships with a section catalog to speed up Figma to code while staying CMS-compatible.",
+    "items": [
+      { "title": "Hero split", "description": "Primary fold with strong copy, CTAs and independent media." },
+      { "title": "Feature grid", "description": "Regular cards for product, value, capabilities or modules." },
+      { "title": "Comparison", "description": "Structured blocks for before/after, with/without, manual/AI." },
+      { "title": "CTA banner", "description": "Action bands for a clear final call to action." }
+    ]
+  },
+  "comparison": {
+    "sectionId": "comparison-two-column",
+    "eyebrow": "CMS compatibility",
+    "heading": ["Structure first,", "conversation on top"],
+    "without": [
+      "Hardcoded text inside components",
+      "Low-confidence editing",
+      "Layouts that are hard to maintain"
+    ],
+    "with": [
+      "Content stored in src/content",
+      "Stable targets for the agent",
+      "Preview-first and controlled publish"
+    ]
+  },
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Ready to create", "the first tenant?"],
+    "description": "Use this base as a starter and adapt the visual language to Figma without reinventing the architecture.",
+    "primaryCta": { "label": "View quality page", "href": "/en/quality" }
+  }
+}

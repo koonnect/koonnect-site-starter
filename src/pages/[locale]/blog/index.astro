@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BlogCard from "../../../components/marketing/blog/BlogCard.astro";
+import { getBlogEntries } from "../../../lib/content/blog";
+import { locales, type Locale } from "../../../lib/routing/locales";
+
+export function getStaticPaths() {
+  return locales.map((locale: Locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const entries = await getBlogEntries(locale);
+const title = locale === "pt" ? "Blog" : "Blog";
+const description =
+  locale === "pt"
+    ? "Artigos, notas e exploracoes sobre IA operacional, CRM e automacao."
+    : "Notes and articles about operational AI, CRM and automation.";
+---
+
+<BaseLayout locale={locale} title={`${title} — Koonnect Starter`} description={description}>
+  <section class="container-shell py-16">
+    <div class="mb-10 space-y-4">
+      <div class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--koon-gold)]">
+        {locale === "pt" ? "Conteudo editorial" : "Editorial content"}
+      </div>
+      <h1 class="text-5xl font-semibold text-white">{title}</h1>
+      <p class="max-w-2xl text-lg leading-8 text-white/65">{description}</p>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-3">
+      {entries.map((entry: CollectionEntry<"blog">) => <BlogCard entry={entry} />)}
+    </div>
+  </section>
+</BaseLayout>

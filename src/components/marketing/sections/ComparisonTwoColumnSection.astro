@@ -1,0 +1,31 @@
+---
+import SectionShell from "../layout/SectionShell.astro";
+
+type Props = {
+  data: {
+    eyebrow: string;
+    heading: string[];
+    without: string[];
+    with: string[];
+  };
+};
+
+const { data } = Astro.props;
+---
+
+<SectionShell eyebrow={data.eyebrow} title={data.heading} align="center">
+  <div class="grid gap-5 lg:grid-cols-2">
+    <article class="surface-card p-6">
+      <div class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45">Sem</div>
+      <ul class="mt-5 space-y-3 text-white/70">
+        {data.without.map((item) => <li class="rounded-2xl border border-white/8 bg-white/5 px-4 py-3">{item}</li>)}
+      </ul>
+    </article>
+    <article class="surface-card border-[var(--koon-blue)]/30 p-6">
+      <div class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--koon-blue)]">Com</div>
+      <ul class="mt-5 space-y-3 text-white">
+        {data.with.map((item) => <li class="rounded-2xl border border-white/8 bg-white/5 px-4 py-3">{item}</li>)}
+      </ul>
+    </article>
+  </div>
+</SectionShell>

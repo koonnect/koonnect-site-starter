@@ -1,0 +1,822 @@
+{
+  "generatedAt": "2026-04-26T18:50:14.517Z",
+  "targetCount": 64,
+  "targets": [
+    {
+      "id": "site.home.hero.eyebrow",
+      "kind": "text",
+      "label": "Home hero eyebrow",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-home.json",
+      "path": "hero.eyebrow",
+      "current": "Starter Astro para Koonnect CMS",
+      "fileSha": "664e7a43fa2ffd92610a2baf5b3983379d148457"
+    },
+    {
+      "id": "site.home.hero.title",
+      "kind": "lines",
+      "label": "Home hero title",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-home.json",
+      "path": "hero.title",
+      "current": [
+        "Sites comerciais",
+        "prontos para evoluir"
+      ],
+      "fileSha": "664e7a43fa2ffd92610a2baf5b3983379d148457"
+    },
+    {
+      "id": "site.home.hero.description",
+      "kind": "text",
+      "label": "Home hero description",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-home.json",
+      "path": "hero.description",
+      "current": "Uma base Astro pensada para marketing, blog, templates e conteudo estruturado desde o primeiro commit.",
+      "fileSha": "664e7a43fa2ffd92610a2baf5b3983379d148457"
+    },
+    {
+      "id": "site.home.hero.primaryCta",
+      "kind": "link",
+      "label": "Home hero CTA",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-home.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Explorar starter",
+        "href": "/pt/sobre"
+      },
+      "fileSha": "664e7a43fa2ffd92610a2baf5b3983379d148457"
+    },
+    {
+      "id": "site.about.hero.eyebrow",
+      "kind": "text",
+      "label": "About hero eyebrow",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-about.json",
+      "path": "hero.eyebrow",
+      "current": "Pagina institucional",
+      "fileSha": "04f4b7df2237d15b1f6fa4a686c76819aecd7d2a"
+    },
+    {
+      "id": "site.about.hero.title",
+      "kind": "lines",
+      "label": "About hero title",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-about.json",
+      "path": "hero.title",
+      "current": [
+        "Sobre a marca",
+        "e o produto"
+      ],
+      "fileSha": "04f4b7df2237d15b1f6fa4a686c76819aecd7d2a"
+    },
+    {
+      "id": "site.about.hero.description",
+      "kind": "text",
+      "label": "About hero description",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-about.json",
+      "path": "hero.description",
+      "current": "Este starter inclui um modelo simples para paginas institucionais, com hero, blocos de corpo e CTA final.",
+      "fileSha": "04f4b7df2237d15b1f6fa4a686c76819aecd7d2a"
+    },
+    {
+      "id": "site.about.hero.primaryCta",
+      "kind": "link",
+      "label": "About hero CTA",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-about.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Entrar em contacto",
+        "href": "/pt/contactos"
+      },
+      "fileSha": "04f4b7df2237d15b1f6fa4a686c76819aecd7d2a"
+    },
+    {
+      "id": "site.pricing.hero.eyebrow",
+      "kind": "text",
+      "label": "Pricing hero eyebrow",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-pricing.json",
+      "path": "hero.eyebrow",
+      "current": "Pagina de pricing",
+      "fileSha": "b66dbb5674324ac73d41e92c3ed5ef2e608c3619"
+    },
+    {
+      "id": "site.pricing.hero.title",
+      "kind": "lines",
+      "label": "Pricing hero title",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-pricing.json",
+      "path": "hero.title",
+      "current": [
+        "Pricing estruturado",
+        "para converter melhor"
+      ],
+      "fileSha": "b66dbb5674324ac73d41e92c3ed5ef2e608c3619"
+    },
+    {
+      "id": "site.pricing.hero.description",
+      "kind": "text",
+      "label": "Pricing hero description",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-pricing.json",
+      "path": "hero.description",
+      "current": "Mantem os tiers, bullets e CTAs em conteudo editavel, e deixa o design livre para o tenant.",
+      "fileSha": "b66dbb5674324ac73d41e92c3ed5ef2e608c3619"
+    },
+    {
+      "id": "site.pricing.hero.primaryCta",
+      "kind": "link",
+      "label": "Pricing hero CTA",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-pricing.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Pedir demo",
+        "href": "/pt/contactos"
+      },
+      "fileSha": "b66dbb5674324ac73d41e92c3ed5ef2e608c3619"
+    },
+    {
+      "id": "site.contact.hero.eyebrow",
+      "kind": "text",
+      "label": "Contact hero eyebrow",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-contact.json",
+      "path": "hero.eyebrow",
+      "current": "Pagina de contacto",
+      "fileSha": "9a04b2c40ba57bad703fbed62c91a45f3cce49f0"
+    },
+    {
+      "id": "site.contact.hero.title",
+      "kind": "lines",
+      "label": "Contact hero title",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-contact.json",
+      "path": "hero.title",
+      "current": [
+        "Contactos e demo",
+        "sem backoffice pesado"
+      ],
+      "fileSha": "9a04b2c40ba57bad703fbed62c91a45f3cce49f0"
+    },
+    {
+      "id": "site.contact.hero.description",
+      "kind": "text",
+      "label": "Contact hero description",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-contact.json",
+      "path": "hero.description",
+      "current": "Liga esta pagina a um webhook, form provider ou iframe e mantem toda a configuracao editorial controlada por schema.",
+      "fileSha": "9a04b2c40ba57bad703fbed62c91a45f3cce49f0"
+    },
+    {
+      "id": "site.contact.hero.primaryCta",
+      "kind": "link",
+      "label": "Contact hero CTA",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/site/pt-contact.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Enviar pedido",
+        "href": "#form"
+      },
+      "fileSha": "9a04b2c40ba57bad703fbed62c91a45f3cce49f0"
+    },
+    {
+      "id": "site.home.hero.eyebrow",
+      "kind": "text",
+      "label": "Home hero eyebrow",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-home.json",
+      "path": "hero.eyebrow",
+      "current": "Astro starter for Koonnect CMS",
+      "fileSha": "653ea9904a117683dd8786763d9d2eb86ddbfeec"
+    },
+    {
+      "id": "site.home.hero.title",
+      "kind": "lines",
+      "label": "Home hero title",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-home.json",
+      "path": "hero.title",
+      "current": [
+        "Commercial sites",
+        "ready to evolve"
+      ],
+      "fileSha": "653ea9904a117683dd8786763d9d2eb86ddbfeec"
+    },
+    {
+      "id": "site.home.hero.description",
+      "kind": "text",
+      "label": "Home hero description",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-home.json",
+      "path": "hero.description",
+      "current": "An Astro-first foundation for marketing pages, blog, templates and structured content from day one.",
+      "fileSha": "653ea9904a117683dd8786763d9d2eb86ddbfeec"
+    },
+    {
+      "id": "site.home.hero.primaryCta",
+      "kind": "link",
+      "label": "Home hero CTA",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-home.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Explore the starter",
+        "href": "/en/about"
+      },
+      "fileSha": "653ea9904a117683dd8786763d9d2eb86ddbfeec"
+    },
+    {
+      "id": "site.about.hero.eyebrow",
+      "kind": "text",
+      "label": "About hero eyebrow",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-about.json",
+      "path": "hero.eyebrow",
+      "current": "Institutional page",
+      "fileSha": "920c7fa3dc0675dd54c051e54ed2b54b0e5b27c1"
+    },
+    {
+      "id": "site.about.hero.title",
+      "kind": "lines",
+      "label": "About hero title",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-about.json",
+      "path": "hero.title",
+      "current": [
+        "About the brand",
+        "and the product"
+      ],
+      "fileSha": "920c7fa3dc0675dd54c051e54ed2b54b0e5b27c1"
+    },
+    {
+      "id": "site.about.hero.description",
+      "kind": "text",
+      "label": "About hero description",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-about.json",
+      "path": "hero.description",
+      "current": "This starter includes a simple template for institutional pages with hero, body blocks and a closing CTA.",
+      "fileSha": "920c7fa3dc0675dd54c051e54ed2b54b0e5b27c1"
+    },
+    {
+      "id": "site.about.hero.primaryCta",
+      "kind": "link",
+      "label": "About hero CTA",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-about.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Get in touch",
+        "href": "/en/contact"
+      },
+      "fileSha": "920c7fa3dc0675dd54c051e54ed2b54b0e5b27c1"
+    },
+    {
+      "id": "site.pricing.hero.eyebrow",
+      "kind": "text",
+      "label": "Pricing hero eyebrow",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-pricing.json",
+      "path": "hero.eyebrow",
+      "current": "Pricing page",
+      "fileSha": "3de899e7db76701ece9967dc50b55f1dfdfad579"
+    },
+    {
+      "id": "site.pricing.hero.title",
+      "kind": "lines",
+      "label": "Pricing hero title",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-pricing.json",
+      "path": "hero.title",
+      "current": [
+        "Structured pricing",
+        "for clearer conversion"
+      ],
+      "fileSha": "3de899e7db76701ece9967dc50b55f1dfdfad579"
+    },
+    {
+      "id": "site.pricing.hero.description",
+      "kind": "text",
+      "label": "Pricing hero description",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-pricing.json",
+      "path": "hero.description",
+      "current": "Keep pricing tiers, bullets and CTAs in editable content while leaving the visual language free for each tenant.",
+      "fileSha": "3de899e7db76701ece9967dc50b55f1dfdfad579"
+    },
+    {
+      "id": "site.pricing.hero.primaryCta",
+      "kind": "link",
+      "label": "Pricing hero CTA",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-pricing.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Request demo",
+        "href": "/en/contact"
+      },
+      "fileSha": "3de899e7db76701ece9967dc50b55f1dfdfad579"
+    },
+    {
+      "id": "site.contact.hero.eyebrow",
+      "kind": "text",
+      "label": "Contact hero eyebrow",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-contact.json",
+      "path": "hero.eyebrow",
+      "current": "Contact page",
+      "fileSha": "0475f545bee6935f4ce43ac115a5a8a1e5797d3c"
+    },
+    {
+      "id": "site.contact.hero.title",
+      "kind": "lines",
+      "label": "Contact hero title",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-contact.json",
+      "path": "hero.title",
+      "current": [
+        "Contact and demo",
+        "without a heavy backoffice"
+      ],
+      "fileSha": "0475f545bee6935f4ce43ac115a5a8a1e5797d3c"
+    },
+    {
+      "id": "site.contact.hero.description",
+      "kind": "text",
+      "label": "Contact hero description",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-contact.json",
+      "path": "hero.description",
+      "current": "Connect this page to a webhook, form provider or iframe while keeping the editorial configuration schema-driven.",
+      "fileSha": "0475f545bee6935f4ce43ac115a5a8a1e5797d3c"
+    },
+    {
+      "id": "site.contact.hero.primaryCta",
+      "kind": "link",
+      "label": "Contact hero CTA",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/site/en-contact.json",
+      "path": "hero.primaryCta",
+      "current": {
+        "label": "Send request",
+        "href": "#form"
+      },
+      "fileSha": "0475f545bee6935f4ce43ac115a5a8a1e5797d3c"
+    },
+    {
+      "id": "pages.quality.hero.eyebrow",
+      "kind": "text",
+      "label": "Quality hero eyebrow",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "hero.eyebrow",
+      "current": "Template aprovado",
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.hero.title",
+      "kind": "lines",
+      "label": "Quality hero title",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "hero.title",
+      "current": [
+        "Pagina de qualidade",
+        "pronta para reutilizar"
+      ],
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.featureGrid.title",
+      "kind": "lines",
+      "label": "Quality feature grid title",
+      "section": "feature-grid",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "sections.0.title",
+      "current": [
+        "Governance editorial",
+        "sem surpresas"
+      ],
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.featureGrid.description",
+      "kind": "text",
+      "label": "Quality feature grid description",
+      "section": "feature-grid",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "sections.0.description",
+      "current": "Cada pagina criada por template entra logo com schema, preview e path previsivel.",
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.timeline.title",
+      "kind": "lines",
+      "label": "Quality timeline title",
+      "section": "timeline",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "sections.1.title",
+      "current": [
+        "Do pedido",
+        "ao publish"
+      ],
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.faq.title",
+      "kind": "lines",
+      "label": "Quality FAQ title",
+      "section": "faq",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "sections.2.title",
+      "current": [
+        "Respostas rapidas"
+      ],
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.ctaBanner.title",
+      "kind": "lines",
+      "label": "Quality CTA banner title",
+      "section": "cta-banner",
+      "locale": "pt",
+      "file": "src/content/pages/pt-quality.json",
+      "path": "ctaBanner.title",
+      "current": [
+        "Usa este template",
+        "como prova de conceito"
+      ],
+      "fileSha": "ccba9980a32a7523b6c433070644e0feda95d60b"
+    },
+    {
+      "id": "pages.quality.hero.eyebrow",
+      "kind": "text",
+      "label": "Quality hero eyebrow",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "hero.eyebrow",
+      "current": "Approved template",
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.quality.hero.title",
+      "kind": "lines",
+      "label": "Quality hero title",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "hero.title",
+      "current": [
+        "Quality page",
+        "ready to reuse"
+      ],
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.quality.featureGrid.title",
+      "kind": "lines",
+      "label": "Quality feature grid title",
+      "section": "feature-grid",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "sections.0.title",
+      "current": [
+        "Editorial governance",
+        "without surprises"
+      ],
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.quality.featureGrid.description",
+      "kind": "text",
+      "label": "Quality feature grid description",
+      "section": "feature-grid",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "sections.0.description",
+      "current": "Every template-created page starts with schema, preview and a predictable route.",
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.quality.timeline.title",
+      "kind": "lines",
+      "label": "Quality timeline title",
+      "section": "timeline",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "sections.1.title",
+      "current": [
+        "From request",
+        "to publish"
+      ],
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.quality.faq.title",
+      "kind": "lines",
+      "label": "Quality FAQ title",
+      "section": "faq",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "sections.2.title",
+      "current": [
+        "Quick answers"
+      ],
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.quality.ctaBanner.title",
+      "kind": "lines",
+      "label": "Quality CTA banner title",
+      "section": "cta-banner",
+      "locale": "en",
+      "file": "src/content/pages/en-quality.json",
+      "path": "ctaBanner.title",
+      "current": [
+        "Use this template",
+        "as a proof of concept"
+      ],
+      "fileSha": "4e2dc08320ce87aeb2e2b60debc3d75d5e80b784"
+    },
+    {
+      "id": "pages.legal.hero.title",
+      "kind": "lines",
+      "label": "Legal hero title",
+      "section": "hero-split",
+      "locale": "pt",
+      "file": "src/content/pages/pt-legal.json",
+      "path": "hero.title",
+      "current": [
+        "Termos, privacidade",
+        "e confianca"
+      ],
+      "fileSha": "57463144e6059682170be3b886b8ec15feb73211"
+    },
+    {
+      "id": "pages.legal.body.title",
+      "kind": "lines",
+      "label": "Legal body title",
+      "section": "legal-body",
+      "locale": "pt",
+      "file": "src/content/pages/pt-legal.json",
+      "path": "sections.0.title",
+      "current": [
+        "Politicas em",
+        "linguagem clara"
+      ],
+      "fileSha": "57463144e6059682170be3b886b8ec15feb73211"
+    },
+    {
+      "id": "pages.legal.logoStrip.title",
+      "kind": "text",
+      "label": "Legal logo strip title",
+      "section": "logo-strip",
+      "locale": "pt",
+      "file": "src/content/pages/pt-legal.json",
+      "path": "sections.1.title",
+      "current": "Standards com que alinhamos",
+      "fileSha": "57463144e6059682170be3b886b8ec15feb73211"
+    },
+    {
+      "id": "pages.legal.contact.title",
+      "kind": "lines",
+      "label": "Legal contact panel title",
+      "section": "contact-panel",
+      "locale": "pt",
+      "file": "src/content/pages/pt-legal.json",
+      "path": "sections.2.title",
+      "current": [
+        "Fala com a nossa",
+        "equipa de compliance"
+      ],
+      "fileSha": "57463144e6059682170be3b886b8ec15feb73211"
+    },
+    {
+      "id": "pages.legal.contact.primaryCta",
+      "kind": "link",
+      "label": "Legal contact CTA",
+      "section": "contact-panel",
+      "locale": "pt",
+      "file": "src/content/pages/pt-legal.json",
+      "path": "sections.2.primaryCta",
+      "current": {
+        "label": "Abrir formulario",
+        "href": "/pt/contactos"
+      },
+      "fileSha": "57463144e6059682170be3b886b8ec15feb73211"
+    },
+    {
+      "id": "pages.legal.hero.title",
+      "kind": "lines",
+      "label": "Legal hero title",
+      "section": "hero-split",
+      "locale": "en",
+      "file": "src/content/pages/en-legal.json",
+      "path": "hero.title",
+      "current": [
+        "Terms, privacy",
+        "and trust"
+      ],
+      "fileSha": "4f2788e3118a71a8567d6881199206f327a5592b"
+    },
+    {
+      "id": "pages.legal.body.title",
+      "kind": "lines",
+      "label": "Legal body title",
+      "section": "legal-body",
+      "locale": "en",
+      "file": "src/content/pages/en-legal.json",
+      "path": "sections.0.title",
+      "current": [
+        "Plain-language",
+        "policy blocks"
+      ],
+      "fileSha": "4f2788e3118a71a8567d6881199206f327a5592b"
+    },
+    {
+      "id": "pages.legal.logoStrip.title",
+      "kind": "text",
+      "label": "Legal logo strip title",
+      "section": "logo-strip",
+      "locale": "en",
+      "file": "src/content/pages/en-legal.json",
+      "path": "sections.1.title",
+      "current": "Standards we align with",
+      "fileSha": "4f2788e3118a71a8567d6881199206f327a5592b"
+    },
+    {
+      "id": "pages.legal.contact.title",
+      "kind": "lines",
+      "label": "Legal contact panel title",
+      "section": "contact-panel",
+      "locale": "en",
+      "file": "src/content/pages/en-legal.json",
+      "path": "sections.2.title",
+      "current": [
+        "Talk to our",
+        "compliance team"
+      ],
+      "fileSha": "4f2788e3118a71a8567d6881199206f327a5592b"
+    },
+    {
+      "id": "pages.legal.contact.primaryCta",
+      "kind": "link",
+      "label": "Legal contact CTA",
+      "section": "contact-panel",
+      "locale": "en",
+      "file": "src/content/pages/en-legal.json",
+      "path": "sections.2.primaryCta",
+      "current": {
+        "label": "Open contact form",
+        "href": "/en/contact"
+      },
+      "fileSha": "4f2788e3118a71a8567d6881199206f327a5592b"
+    },
+    {
+      "id": "settings.menus.nav.demoCta",
+      "kind": "link",
+      "label": "Navbar demo CTA",
+      "section": "header",
+      "locale": "pt",
+      "file": "src/content/settings/menus-pt.json",
+      "path": "nav.demoCta",
+      "current": {
+        "label": "Pedir demo",
+        "href": "/contactos"
+      },
+      "fileSha": "e864b2c7afbffae20cefdbb2d0c83aabaa68ff84"
+    },
+    {
+      "id": "settings.menus.nav.directLinks.1.enabled",
+      "kind": "toggle",
+      "label": "Pricing menu enabled",
+      "section": "header",
+      "locale": "pt",
+      "file": "src/content/settings/menus-pt.json",
+      "path": "nav.directLinks.1.enabled",
+      "current": true,
+      "fileSha": "e864b2c7afbffae20cefdbb2d0c83aabaa68ff84"
+    },
+    {
+      "id": "settings.menus.footer.demoCta",
+      "kind": "link",
+      "label": "Footer demo CTA",
+      "section": "footer",
+      "locale": "pt",
+      "file": "src/content/settings/menus-pt.json",
+      "path": "footer.demoCta",
+      "current": {
+        "label": "Entrar em contacto",
+        "href": "/contactos"
+      },
+      "fileSha": "e864b2c7afbffae20cefdbb2d0c83aabaa68ff84"
+    },
+    {
+      "id": "settings.menus.footer.copyright",
+      "kind": "text",
+      "label": "Footer copyright",
+      "section": "footer",
+      "locale": "pt",
+      "file": "src/content/settings/menus-pt.json",
+      "path": "footer.copyright",
+      "current": "Koonnect Starter. Todos os direitos reservados.",
+      "fileSha": "e864b2c7afbffae20cefdbb2d0c83aabaa68ff84"
+    },
+    {
+      "id": "settings.menus.nav.demoCta",
+      "kind": "link",
+      "label": "Navbar demo CTA",
+      "section": "header",
+      "locale": "en",
+      "file": "src/content/settings/menus-en.json",
+      "path": "nav.demoCta",
+      "current": {
+        "label": "Request demo",
+        "href": "/contact"
+      },
+      "fileSha": "07210bda7965267253b0c8873afac958db436d0b"
+    },
+    {
+      "id": "settings.menus.nav.directLinks.1.enabled",
+      "kind": "toggle",
+      "label": "Pricing menu enabled",
+      "section": "header",
+      "locale": "en",
+      "file": "src/content/settings/menus-en.json",
+      "path": "nav.directLinks.1.enabled",
+      "current": true,
+      "fileSha": "07210bda7965267253b0c8873afac958db436d0b"
+    },
+    {
+      "id": "settings.menus.footer.demoCta",
+      "kind": "link",
+      "label": "Footer demo CTA",
+      "section": "footer",
+      "locale": "en",
+      "file": "src/content/settings/menus-en.json",
+      "path": "footer.demoCta",
+      "current": {
+        "label": "Get in touch",
+        "href": "/contact"
+      },
+      "fileSha": "07210bda7965267253b0c8873afac958db436d0b"
+    },
+    {
+      "id": "settings.menus.footer.copyright",
+      "kind": "text",
+      "label": "Footer copyright",
+      "section": "footer",
+      "locale": "en",
+      "file": "src/content/settings/menus-en.json",
+      "path": "footer.copyright",
+      "current": "Koonnect Starter. All rights reserved.",
+      "fileSha": "07210bda7965267253b0c8873afac958db436d0b"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "locale": "en",
+  "pageKey": "about",
+  "routeSlug": "about",
+  "siteName": "Koonnect Starter",
+  "metadata": {
+    "title": "About — Koonnect Starter",
+    "description": "Base institutional page for company story, positioning and brand context."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Institutional page",
+    "title": ["About the brand", "and the product"],
+    "description": "This starter includes a simple template for institutional pages with hero, body blocks and a closing CTA.",
+    "primaryCta": { "label": "Get in touch", "href": "/en/contact" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "About page media" }
+  },
+  "body": [
+    { "title": "Positioning", "text": "Use this page to explain who the brand is, why it exists and which customers it serves best." },
+    { "title": "Credibility", "text": "Keep the copy scannable, the blocks short and the proof points easy to evolve without touching layout code." }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Want to turn", "this into your tenant?"],
+    "description": "Replace the demo content and keep the CMS-ready structure intact.",
+    "primaryCta": { "label": "View blog", "href": "/en/blog" }
+  }
+}

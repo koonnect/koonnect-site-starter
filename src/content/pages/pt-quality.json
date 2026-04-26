@@ -1,0 +1,58 @@
+{
+  "locale": "pt",
+  "pageKey": "quality",
+  "routeSlug": "qualidade",
+  "status": "published",
+  "templateId": "quality-page",
+  "metadata": {
+    "title": "Qualidade — Koonnect Starter",
+    "description": "Pagina template para qualidade, certificacoes ou standards."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Template aprovado",
+    "title": ["Pagina de qualidade", "pronta para reutilizar"],
+    "description": "Este template prova o fluxo de paginas estruturadas criadas sem mexer em layout arbitrario.",
+    "primaryCta": { "label": "Falar com equipa", "href": "/pt/contactos" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Quality template media" }
+  },
+  "sections": [
+    {
+      "sectionId": "feature-grid",
+      "eyebrow": "Pilares",
+      "title": ["Governance editorial", "sem surpresas"],
+      "description": "Cada pagina criada por template entra logo com schema, preview e path previsivel.",
+      "items": [
+        { "title": "Schema-first", "description": "As formas de conteudo sao validadas antes de chegar ao render." },
+        { "title": "Routes previsiveis", "description": "Locale e slug sao do entry, nao do layout." },
+        { "title": "Visual reutilizavel", "description": "Seccoes do catalogo evitam proliferacao de layouts unicos." }
+      ]
+    },
+    {
+      "sectionId": "timeline",
+      "eyebrow": "Processo",
+      "title": ["Do pedido", "ao publish"],
+      "steps": [
+        { "title": "Draft", "text": "Editor abre um change set na mini app." },
+        { "title": "Validar", "text": "Schema + targets garantem diff seguro." },
+        { "title": "Preview", "text": "Um branch de preview renderiza antes de publicar." },
+        { "title": "Publish", "text": "Change set aprovado entra no conteudo do tenant." }
+      ]
+    },
+    {
+      "sectionId": "faq",
+      "eyebrow": "FAQ",
+      "title": ["Respostas rapidas"],
+      "items": [
+        { "question": "Posso meter uma seccao unica?", "answer": "So depois de registada no catalogo. Tenants ficam sempre compativeis com o CMS." },
+        { "question": "E copy hardcoded?", "answer": "A copy editorial vive em src/content. O renderer nao deve ter literais." }
+      ]
+    }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Usa este template", "como prova de conceito"],
+    "description": "A mini app e o MCP devem criar paginas novas a partir deste modelo, nao por HTML livre.",
+    "primaryCta": { "label": "Voltar a home", "href": "/pt" }
+  }
+}

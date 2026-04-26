@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSplitSection from "../../components/marketing/sections/HeroSplitSection.astro";
+import FeatureGridSection from "../../components/marketing/sections/FeatureGridSection.astro";
+import ComparisonTwoColumnSection from "../../components/marketing/sections/ComparisonTwoColumnSection.astro";
+import CtaBannerSection from "../../components/marketing/sections/CtaBannerSection.astro";
+import { getSiteEntry } from "../../lib/content/site";
+import { locales, type Locale } from "../../lib/routing/locales";
+
+export function getStaticPaths() {
+  return locales.map((locale: Locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const entry = await getSiteEntry(locale, "home");
+---
+
+<BaseLayout locale={locale} title={entry.data.metadata.title} description={entry.data.metadata.description}>
+  <HeroSplitSection data={entry.data.hero} />
+  {entry.data.featureGrid && <FeatureGridSection data={entry.data.featureGrid} />}
+  {entry.data.comparison && <ComparisonTwoColumnSection data={entry.data.comparison} />}
+  {entry.data.ctaBanner && <CtaBannerSection data={entry.data.ctaBanner} />}
+</BaseLayout>

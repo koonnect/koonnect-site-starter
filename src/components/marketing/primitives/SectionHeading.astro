@@ -1,0 +1,20 @@
+---
+type Props = {
+  eyebrow?: string;
+  title: string[];
+  description?: string;
+  centered?: boolean;
+};
+
+const { eyebrow, title, description, centered = false } = Astro.props;
+---
+
+<div class:list={["space-y-4", centered && "mx-auto text-center"]}>
+  {eyebrow && <div class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--koon-gold)]">{eyebrow}</div>}
+  <h1 class="text-5xl font-semibold leading-none tracking-tight text-white md:text-7xl">
+    {title.map((line) => (
+      <span class="block">{line}</span>
+    ))}
+  </h1>
+  {description && <p class="max-w-2xl text-lg leading-8 text-white/65">{description}</p>}
+</div>
