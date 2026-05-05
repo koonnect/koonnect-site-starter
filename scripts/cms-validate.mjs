@@ -11,7 +11,7 @@ const seo = z.object({ title: z.string().min(1), description: z.string().min(1) 
 
 const siteSchema = z.object({
   locale,
-  pageKey: z.string().min(1),
+  pageKey: z.enum(["home", "about", "pricing", "contact"]),
   routeSlug: z.string(),
   siteName: z.string().min(1),
   metadata: seo,
@@ -22,6 +22,25 @@ const siteSchema = z.object({
     description: z.string().min(1),
     primaryCta: link,
   }),
+});
+
+const heroSplitSection = z.object({
+  sectionId: z.literal("hero-split"),
+  eyebrow: z.string().min(1),
+  title: z.array(z.string().min(1)).min(1),
+  description: z.string().min(1),
+  primaryCta: link,
+  secondaryCta: link.optional(),
+  media: z.object({ src: z.string().min(1), alt: z.string().min(1) }).optional(),
+});
+
+const heroCenteredSection = z.object({
+  sectionId: z.literal("hero-centered"),
+  eyebrow: z.string().min(1),
+  title: z.array(z.string().min(1)).min(1),
+  description: z.string().min(1),
+  primaryCta: link,
+  secondaryCta: link.optional(),
 });
 
 const featureGridSection = z.object({
@@ -99,15 +118,9 @@ const pageSchema = z.object({
   pageKey: z.string().min(1),
   routeSlug: z.string().min(1),
   status: z.enum(["draft", "published"]),
-  templateId: z.string().min(1),
+  templateId: z.enum(["quality-page", "certification-page", "landing-simple", "faq-page", "legal-page"]),
   metadata: seo,
-  hero: z.object({
-    sectionId: z.literal("hero-split"),
-    eyebrow: z.string().min(1),
-    title: z.array(z.string().min(1)).min(1),
-    description: z.string().min(1),
-    primaryCta: link,
-  }),
+  hero: z.discriminatedUnion("sectionId", [heroSplitSection, heroCenteredSection]),
   sections: z.array(templateSection).min(1),
   ctaBanner: ctaBannerSection.optional(),
 });
@@ -152,19 +165,14 @@ const analyticsSchema = z.object({
   linkedin: z.string().nullable(),
 });
 
+const jsonFiles = (dir) =>
+  readdirSync(join(root, dir))
+    .filter((item) => item.endsWith(".json"))
+    .map((item) => `${dir}/${item}`);
+
 const checks = [
-  ["src/content/site/pt-home.json", siteSchema],
-  ["src/content/site/en-home.json", siteSchema],
-  ["src/content/site/pt-about.json", siteSchema],
-  ["src/content/site/en-about.json", siteSchema],
-  ["src/content/site/pt-pricing.json", siteSchema],
-  ["src/content/site/en-pricing.json", siteSchema],
-  ["src/content/site/pt-contact.json", siteSchema],
-  ["src/content/site/en-contact.json", siteSchema],
-  ["src/content/pages/pt-quality.json", pageSchema],
-  ["src/content/pages/en-quality.json", pageSchema],
-  ["src/content/pages/pt-legal.json", pageSchema],
-  ["src/content/pages/en-legal.json", pageSchema],
+  ...jsonFiles("src/content/site").map((file) => [file, siteSchema]),
+  ...jsonFiles("src/content/pages").map((file) => [file, pageSchema]),
   ["src/content/settings/menus-pt.json", menuSchema],
   ["src/content/settings/menus-en.json", menuSchema],
   ["src/content/settings/forms-pt.json", formSchema],

@@ -1,0 +1,45 @@
+{
+  "locale": "pt",
+  "pageKey": "landing",
+  "routeSlug": "campanha",
+  "status": "published",
+  "templateId": "landing-simple",
+  "metadata": {
+    "title": "Landing simples — Koonnect Starter",
+    "description": "Template simples para campanhas, ofertas e paginas de conversao."
+  },
+  "hero": {
+    "sectionId": "hero-centered",
+    "eyebrow": "Landing simples",
+    "title": ["Uma pagina clara", "para uma campanha"],
+    "description": "Use este template quando precisa de uma mensagem focada, uma prova rapida e um CTA unico.",
+    "primaryCta": { "label": "Agendar demo", "href": "/pt/contactos" },
+    "secondaryCta": { "label": "Ver templates", "href": "/pt/qualidade" }
+  },
+  "sections": [
+    {
+      "sectionId": "feature-grid",
+      "eyebrow": "Beneficios",
+      "title": ["Tudo o que a campanha", "precisa para arrancar"],
+      "description": "Sem inventar componentes novos, sem hardcoded copy e com targets preparados.",
+      "items": [
+        { "title": "Mensagem", "description": "Hero e CTA com copy editavel." },
+        { "title": "Prova", "description": "Cards curtos para beneficios, casos ou garantias." },
+        { "title": "Acao", "description": "Um caminho claro para contacto ou conversao." }
+      ]
+    },
+    {
+      "sectionId": "comparison-two-column",
+      "eyebrow": "Antes e depois",
+      "heading": ["Uma landing", "sem retrabalho"],
+      "without": ["Copy espalhada por codigo", "Secoes feitas a mao", "Sem preview editorial"],
+      "with": ["Conteudo em src/content", "Catalogo de secoes", "Preview por change set"]
+    }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Cria campanhas", "sem perder controlo"],
+    "description": "A equipa edita por conversa, mas o layout continua previsivel.",
+    "primaryCta": { "label": "Comecar campanha", "href": "/pt/contactos" }
+  }
+}

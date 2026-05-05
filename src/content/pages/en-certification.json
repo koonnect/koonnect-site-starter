@@ -1,0 +1,59 @@
+{
+  "locale": "en",
+  "pageKey": "certification",
+  "routeSlug": "certification",
+  "status": "published",
+  "templateId": "certification-page",
+  "metadata": {
+    "title": "Certification — Koonnect Starter",
+    "description": "Template page for certifications, audits and trust standards."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Approved template",
+    "title": ["Certification", "without freeform layout"],
+    "description": "A model for communicating standards, audits and evidence while staying inside the CMS catalog.",
+    "primaryCta": { "label": "Request evidence", "href": "/en/contact" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Certification template media" }
+  },
+  "sections": [
+    {
+      "sectionId": "logo-strip",
+      "eyebrow": "Standards",
+      "title": "Supported frameworks and certifications",
+      "logos": [
+        { "name": "ISO", "src": "/logos/iso.svg", "alt": "ISO" },
+        { "name": "GDPR", "src": "/logos/gdpr.svg", "alt": "GDPR" },
+        { "name": "SOC", "src": "/logos/soc.svg", "alt": "SOC" },
+        { "name": "AICPA", "src": "/logos/aicpa.svg", "alt": "AICPA" }
+      ]
+    },
+    {
+      "sectionId": "feature-grid",
+      "eyebrow": "Evidence",
+      "title": ["Structured content", "for compliance teams"],
+      "description": "Every block can be edited by the conversational CMS and validated before publishing.",
+      "items": [
+        { "title": "Policies", "description": "Document responsibilities, controls and internal processes." },
+        { "title": "Audits", "description": "Show status, scope and relevant evidence for each standard." },
+        { "title": "Contacts", "description": "Route sensitive requests to the right team." }
+      ]
+    },
+    {
+      "sectionId": "timeline",
+      "eyebrow": "Flow",
+      "title": ["From certification", "to publish"],
+      "steps": [
+        { "title": "Collect", "text": "The team gathers documents and evidence." },
+        { "title": "Validate", "text": "Content passes schema and review." },
+        { "title": "Publish", "text": "The approved version goes to production." }
+      ]
+    }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Keep certifications", "always up to date"],
+    "description": "The CMS handles content; the tenant keeps the approved design and structure.",
+    "primaryCta": { "label": "Talk to team", "href": "/en/contact" }
+  }
+}

@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/marketing/layout/Header.astro";
 import Footer from "../components/marketing/layout/Footer.astro";
 import { buildCanonical } from "../lib/seo/metadata";
+import { buildBaseStructuredData, type JsonLd } from "../lib/seo/jsonld";
 import { getSettings } from "../lib/content/settings";
 import type { Locale } from "../lib/routing/locales";
 
@@ -10,11 +11,18 @@ type Props = {
   locale: Locale;
   title: string;
   description: string;
+  structuredData?: JsonLd | JsonLd[];
 };
 
-const { locale, title, description } = Astro.props;
+const { locale, title, description, structuredData } = Astro.props;
 const settings = await getSettings(locale);
-const canonical = buildCanonical(locale, Astro.url.pathname.replace(`/${locale}`, "") || "/");
+const pathname = Astro.url.pathname.replace(`/${locale}`, "") || "/";
+const canonical = buildCanonical(locale, pathname);
+const extraStructuredData = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
+const structuredDataItems = [
+  ...buildBaseStructuredData({ locale, title, description, pathname }),
+  ...extraStructuredData,
+];
 ---
 
 <!doctype html>
@@ -25,6 +33,7 @@ const canonical = buildCanonical(locale, Astro.url.pathname.replace(`/${locale}`
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {structuredDataItems.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
   </head>
   <body class="site-shell">
     <Header locale={locale} menus={settings.menus} />

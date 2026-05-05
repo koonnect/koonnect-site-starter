@@ -7,7 +7,7 @@ export const LinkSchema = z.object({
   href: z.string().min(1),
 });
 
-export const HeroSchema = z.object({
+export const HeroSplitSchema = z.object({
   sectionId: z.literal("hero-split"),
   eyebrow: z.string().min(1),
   title: z.array(z.string().min(1)).min(1),
@@ -16,6 +16,17 @@ export const HeroSchema = z.object({
   secondaryCta: LinkSchema.optional(),
   media: z.object({ src: z.string().min(1), alt: z.string().min(1) }).optional(),
 });
+
+export const HeroCenteredSchema = z.object({
+  sectionId: z.literal("hero-centered"),
+  eyebrow: z.string().min(1),
+  title: z.array(z.string().min(1)).min(1),
+  description: z.string().min(1),
+  primaryCta: LinkSchema,
+  secondaryCta: LinkSchema.optional(),
+});
+
+export const HeroSchema = z.discriminatedUnion("sectionId", [HeroSplitSchema, HeroCenteredSchema]);
 
 export const FeatureGridSchema = z.object({
   sectionId: z.literal("feature-grid"),
@@ -98,7 +109,7 @@ export const SitePageSchema = z.object({
   routeSlug: z.string(),
   siteName: z.string().min(1),
   metadata: SeoSchema,
-  hero: HeroSchema,
+  hero: HeroSplitSchema,
   featureGrid: FeatureGridSchema.optional(),
   logoStrip: LogoStripSchema.optional(),
   comparison: ComparisonSchema.optional(),

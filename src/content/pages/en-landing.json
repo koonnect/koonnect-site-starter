@@ -1,0 +1,45 @@
+{
+  "locale": "en",
+  "pageKey": "landing",
+  "routeSlug": "campaign",
+  "status": "published",
+  "templateId": "landing-simple",
+  "metadata": {
+    "title": "Simple landing — Koonnect Starter",
+    "description": "Simple template for campaigns, offers and conversion pages."
+  },
+  "hero": {
+    "sectionId": "hero-centered",
+    "eyebrow": "Simple landing",
+    "title": ["One clear page", "for one campaign"],
+    "description": "Use this template when you need a focused message, quick proof and a single CTA.",
+    "primaryCta": { "label": "Book demo", "href": "/en/contact" },
+    "secondaryCta": { "label": "View templates", "href": "/en/quality" }
+  },
+  "sections": [
+    {
+      "sectionId": "feature-grid",
+      "eyebrow": "Benefits",
+      "title": ["Everything the campaign", "needs to launch"],
+      "description": "No new components, no hardcoded copy and content targets ready from day one.",
+      "items": [
+        { "title": "Message", "description": "Hero and CTA with editable copy." },
+        { "title": "Proof", "description": "Short cards for benefits, cases or guarantees." },
+        { "title": "Action", "description": "A clear path to contact or conversion." }
+      ]
+    },
+    {
+      "sectionId": "comparison-two-column",
+      "eyebrow": "Before and after",
+      "heading": ["A landing page", "without rework"],
+      "without": ["Copy scattered in code", "Handmade sections", "No editorial preview"],
+      "with": ["Content in src/content", "Section catalog", "Preview by change set"]
+    }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Create campaigns", "without losing control"],
+    "description": "The team edits by conversation, while the layout stays predictable.",
+    "primaryCta": { "label": "Start campaign", "href": "/en/contact" }
+  }
+}

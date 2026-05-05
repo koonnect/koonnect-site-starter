@@ -1,0 +1,41 @@
+{
+  "locale": "pt",
+  "pageKey": "faq",
+  "routeSlug": "faq",
+  "status": "published",
+  "templateId": "faq-page",
+  "metadata": {
+    "title": "FAQ — Koonnect Starter",
+    "description": "Template para perguntas frequentes editaveis por CMS conversacional."
+  },
+  "hero": {
+    "sectionId": "hero-centered",
+    "eyebrow": "FAQ",
+    "title": ["Perguntas frequentes", "com estrutura editorial"],
+    "description": "Um template simples para duvidas de produto, suporte, onboarding ou legal.",
+    "primaryCta": { "label": "Contactar suporte", "href": "/pt/contactos" }
+  },
+  "sections": [
+    {
+      "sectionId": "faq",
+      "eyebrow": "Base",
+      "title": ["Tudo editavel", "sem tocar em codigo"],
+      "items": [
+        { "question": "Quem pode editar esta pagina?", "answer": "Qualquer role autorizada pelo CMS pode propor alteracoes e gerar preview." },
+        { "question": "Posso adicionar perguntas?", "answer": "Sim, desde que o payload continue a respeitar o schema de FAQ." },
+        { "question": "O publish e automatico?", "answer": "Nao. Preview e publish sao passos separados por design." }
+      ]
+    },
+    {
+      "sectionId": "contact-panel",
+      "eyebrow": "Ainda com duvidas",
+      "title": ["Fala com", "a equipa certa"],
+      "description": "Quando a FAQ nao chega, encaminha o contacto para o canal mais adequado.",
+      "details": [
+        { "label": "Email", "value": "hello@koonnect.com", "href": "mailto:hello@koonnect.com" },
+        { "label": "Suporte", "value": "Dias uteis, 09:00-18:00" }
+      ],
+      "primaryCta": { "label": "Abrir contacto", "href": "/pt/contactos" }
+    }
+  ]
+}

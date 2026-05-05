@@ -1,0 +1,59 @@
+{
+  "locale": "pt",
+  "pageKey": "certification",
+  "routeSlug": "certificacao",
+  "status": "published",
+  "templateId": "certification-page",
+  "metadata": {
+    "title": "Certificacao — Koonnect Starter",
+    "description": "Pagina template para certificacoes, auditorias e standards de confianca."
+  },
+  "hero": {
+    "sectionId": "hero-split",
+    "eyebrow": "Template aprovado",
+    "title": ["Certificacao", "sem layout livre"],
+    "description": "Um modelo para comunicar standards, auditorias e evidencias sem sair do catalogo CMS.",
+    "primaryCta": { "label": "Pedir evidencias", "href": "/pt/contactos" },
+    "media": { "src": "/hero-bg-dark.jpg", "alt": "Certificacao template media" }
+  },
+  "sections": [
+    {
+      "sectionId": "logo-strip",
+      "eyebrow": "Standards",
+      "title": "Frameworks e certificacoes suportadas",
+      "logos": [
+        { "name": "ISO", "src": "/logos/iso.svg", "alt": "ISO" },
+        { "name": "GDPR", "src": "/logos/gdpr.svg", "alt": "GDPR" },
+        { "name": "SOC", "src": "/logos/soc.svg", "alt": "SOC" },
+        { "name": "AICPA", "src": "/logos/aicpa.svg", "alt": "AICPA" }
+      ]
+    },
+    {
+      "sectionId": "feature-grid",
+      "eyebrow": "Evidencias",
+      "title": ["Conteudo estruturado", "para equipas de compliance"],
+      "description": "Cada bloco pode ser editado pelo CMS conversacional e validado antes de publicar.",
+      "items": [
+        { "title": "Politicas", "description": "Documenta responsabilidades, controlos e processos internos." },
+        { "title": "Auditorias", "description": "Mostra estado, scope e evidencias relevantes para cada standard." },
+        { "title": "Contactos", "description": "Encaminha pedidos sensiveis para a equipa certa." }
+      ]
+    },
+    {
+      "sectionId": "timeline",
+      "eyebrow": "Fluxo",
+      "title": ["Da certificacao", "ao publish"],
+      "steps": [
+        { "title": "Recolher", "text": "A equipa junta documentos e evidencias." },
+        { "title": "Validar", "text": "O conteudo passa por schema e revisao." },
+        { "title": "Publicar", "text": "A versao aprovada entra em producao." }
+      ]
+    }
+  ],
+  "ctaBanner": {
+    "sectionId": "cta-banner",
+    "title": ["Mantem certificacoes", "sempre atualizadas"],
+    "description": "O CMS trata o conteudo; o tenant mantem o design e a estrutura aprovados.",
+    "primaryCta": { "label": "Falar com equipa", "href": "/pt/contactos" }
+  }
+}

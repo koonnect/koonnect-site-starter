@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getBlogEntries, getBlogEntry } from "../../../lib/content/blog";
+import { buildArticleJsonLd } from "../../../lib/seo/jsonld";
 
 export async function getStaticPaths() {
   const entries = [...(await getBlogEntries("pt")), ...(await getBlogEntries("en"))];
@@ -14,9 +15,22 @@ const locale = Astro.params.locale as "pt" | "en";
 const slug = Astro.params.slug ?? "";
 const entry = await getBlogEntry(locale, slug);
 const { Content } = await render(entry);
+const articleJsonLd = buildArticleJsonLd({
+  locale,
+  title: entry.data.seo.title,
+  description: entry.data.seo.description,
+  pathname: `/blog/${entry.data.slug}`,
+  publishedAt: entry.data.publishedAt,
+  image: entry.data.heroImage,
+});
 ---
 
-<BaseLayout locale={locale} title={entry.data.seo.title} description={entry.data.seo.description}>
+<BaseLayout
+  locale={locale}
+  title={entry.data.seo.title}
+  description={entry.data.seo.description}
+  structuredData={articleJsonLd}
+>
   <article class="container-shell py-16">
     <div class="mx-auto max-w-3xl space-y-5">
       <div class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--koon-gold)]">

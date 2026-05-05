@@ -8,282 +8,153 @@ export type ContentTarget = {
   label: string;
   section: string;
   locale: string;
+  entry: string;
   file: string;
   path: string;
   current: unknown;
   fileSha: string;
 };
 
-type TargetSeed = Omit<ContentTarget, "current" | "fileSha">;
+type JsonObject = Record<string, unknown>;
+
+const SKIPPED_KEYS = new Set(["locale", "pageKey", "routeSlug", "status", "templateId", "sectionId"]);
 
 function hashFile(input: string) {
   return createHash("sha1").update(input).digest("hex");
 }
 
-function readPath(source: unknown, path: string) {
-  return path.split(".").reduce<unknown>((acc, part) => {
-    if (acc == null) return undefined;
-    if (Array.isArray(acc)) return acc[Number(part)];
-    if (typeof acc === "object") return (acc as Record<string, unknown>)[part];
-    return undefined;
-  }, source);
+function isObject(value: unknown): value is JsonObject {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
-export function hydrateTargets(
-  seeds: TargetSeed[],
-  files: Record<string, { raw: string; json: unknown }>,
+function isLink(value: JsonObject) {
+  return typeof value.label === "string" && typeof value.href === "string";
+}
+
+function isImage(value: JsonObject) {
+  return typeof value.src === "string" && typeof value.alt === "string";
+}
+
+function inferLocale(file: string, json: JsonObject) {
+  if (typeof json.locale === "string") return json.locale;
+  const match = file.match(/(?:^|\/)(pt|en)(?:-|\/)/);
+  return match?.[1] ?? "global";
+}
+
+function inferEntry(file: string, json: JsonObject) {
+  if (file.includes("/site/")) return `site/${String(json.pageKey ?? "unknown")}`;
+  if (file.includes("/pages/")) return `pages/${String(json.pageKey ?? "unknown")}`;
+  if (file.includes("/settings/")) return `settings/${file.split("/").pop()?.replace(/\.json$/, "") ?? "unknown"}`;
+  return file.replace(/^src\/content\//, "").replace(/\.json$/, "");
+}
+
+function inferPrefix(file: string, json: JsonObject) {
+  if (file.includes("/site/")) return `site.${String(json.pageKey ?? "unknown")}`;
+  if (file.includes("/pages/")) return `pages.${String(json.pageKey ?? "unknown")}`;
+  if (file.includes("/settings/menus-")) return "settings.menus";
+  if (file.includes("/settings/forms-")) return "settings.forms";
+  if (file.includes("/settings/certifications")) return "settings.certifications";
+  if (file.includes("/settings/analytics")) return "settings.analytics";
+  return inferEntry(file, json).replace(/\//g, ".");
+}
+
+function humanize(input: string) {
+  return input
+    .replace(/\.\d+(?=\.|$)/g, " item")
+    .replace(/[._-]+/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function makeTarget(context: {
+  kind: ContentTargetKind;
+  prefix: string;
+  labelPath: string;
+  section: string;
+  locale: string;
+  entry: string;
+  file: string;
+  path: string;
+  current: unknown;
+  fileSha: string;
+}): ContentTarget {
+  return {
+    id: `${context.prefix}.${context.path}`,
+    kind: context.kind,
+    label: humanize(context.labelPath),
+    section: context.section,
+    locale: context.locale,
+    entry: context.entry,
+    file: context.file,
+    path: context.path,
+    current: context.current,
+    fileSha: context.fileSha,
+  };
+}
+
+function scanValue(
+  value: unknown,
+  context: {
+    prefix: string;
+    locale: string;
+    entry: string;
+    file: string;
+    fileSha: string;
+    section: string;
+    path: string;
+  },
 ): ContentTarget[] {
-  return seeds
-    .map((seed) => {
-      const file = files[seed.file];
-      if (!file) return null;
-      return {
-        ...seed,
-        current: readPath(file.json, seed.path),
-        fileSha: hashFile(file.raw),
-      };
-    })
-    .filter(Boolean) as ContentTarget[];
-}
+  if (typeof value === "boolean") {
+    return [makeTarget({ ...context, kind: "toggle", labelPath: context.path, current: value })];
+  }
 
-type LocaleCode = "pt" | "en";
+  if (typeof value === "string") {
+    return [makeTarget({ ...context, kind: "text", labelPath: context.path, current: value })];
+  }
 
-const LOCALES: LocaleCode[] = ["pt", "en"];
-
-const SITE_PAGES: Array<{ key: "home" | "about" | "pricing" | "contact"; label: string }> = [
-  { key: "home", label: "Home" },
-  { key: "about", label: "About" },
-  { key: "pricing", label: "Pricing" },
-  { key: "contact", label: "Contact" },
-];
-
-function siteHeroSeeds(): TargetSeed[] {
-  const seeds: TargetSeed[] = [];
-  for (const locale of LOCALES) {
-    for (const page of SITE_PAGES) {
-      const file = `src/content/site/${locale}-${page.key}.json`;
-      seeds.push(
-        {
-          id: `site.${page.key}.hero.eyebrow`,
-          kind: "text",
-          label: `${page.label} hero eyebrow`,
-          section: "hero-split",
-          locale,
-          file,
-          path: "hero.eyebrow",
-        },
-        {
-          id: `site.${page.key}.hero.title`,
-          kind: "lines",
-          label: `${page.label} hero title`,
-          section: "hero-split",
-          locale,
-          file,
-          path: "hero.title",
-        },
-        {
-          id: `site.${page.key}.hero.description`,
-          kind: "text",
-          label: `${page.label} hero description`,
-          section: "hero-split",
-          locale,
-          file,
-          path: "hero.description",
-        },
-        {
-          id: `site.${page.key}.hero.primaryCta`,
-          kind: "link",
-          label: `${page.label} hero CTA`,
-          section: "hero-split",
-          locale,
-          file,
-          path: "hero.primaryCta",
-        },
-      );
+  if (Array.isArray(value)) {
+    if (value.every((item) => typeof item === "string")) {
+      return [makeTarget({ ...context, kind: "lines", labelPath: context.path, current: value })];
     }
-  }
-  return seeds;
-}
 
-function qualityPageSeeds(): TargetSeed[] {
-  const seeds: TargetSeed[] = [];
-  for (const locale of LOCALES) {
-    const file = `src/content/pages/${locale}-quality.json`;
-    seeds.push(
-      {
-        id: `pages.quality.hero.eyebrow`,
-        kind: "text",
-        label: "Quality hero eyebrow",
-        section: "hero-split",
-        locale,
-        file,
-        path: "hero.eyebrow",
-      },
-      {
-        id: `pages.quality.hero.title`,
-        kind: "lines",
-        label: "Quality hero title",
-        section: "hero-split",
-        locale,
-        file,
-        path: "hero.title",
-      },
-      {
-        id: `pages.quality.featureGrid.title`,
-        kind: "lines",
-        label: "Quality feature grid title",
-        section: "feature-grid",
-        locale,
-        file,
-        path: "sections.0.title",
-      },
-      {
-        id: `pages.quality.featureGrid.description`,
-        kind: "text",
-        label: "Quality feature grid description",
-        section: "feature-grid",
-        locale,
-        file,
-        path: "sections.0.description",
-      },
-      {
-        id: `pages.quality.timeline.title`,
-        kind: "lines",
-        label: "Quality timeline title",
-        section: "timeline",
-        locale,
-        file,
-        path: "sections.1.title",
-      },
-      {
-        id: `pages.quality.faq.title`,
-        kind: "lines",
-        label: "Quality FAQ title",
-        section: "faq",
-        locale,
-        file,
-        path: "sections.2.title",
-      },
-      {
-        id: `pages.quality.ctaBanner.title`,
-        kind: "lines",
-        label: "Quality CTA banner title",
-        section: "cta-banner",
-        locale,
-        file,
-        path: "ctaBanner.title",
-      },
+    return value.flatMap((item, index) =>
+      scanValue(item, {
+        ...context,
+        path: context.path ? `${context.path}.${index}` : String(index),
+      }),
     );
   }
-  return seeds;
-}
 
-function legalPageSeeds(): TargetSeed[] {
-  const seeds: TargetSeed[] = [];
-  for (const locale of LOCALES) {
-    const file = `src/content/pages/${locale}-legal.json`;
-    seeds.push(
-      {
-        id: `pages.legal.hero.title`,
-        kind: "lines",
-        label: "Legal hero title",
-        section: "hero-split",
-        locale,
-        file,
-        path: "hero.title",
-      },
-      {
-        id: `pages.legal.body.title`,
-        kind: "lines",
-        label: "Legal body title",
-        section: "legal-body",
-        locale,
-        file,
-        path: "sections.0.title",
-      },
-      {
-        id: `pages.legal.logoStrip.title`,
-        kind: "text",
-        label: "Legal logo strip title",
-        section: "logo-strip",
-        locale,
-        file,
-        path: "sections.1.title",
-      },
-      {
-        id: `pages.legal.contact.title`,
-        kind: "lines",
-        label: "Legal contact panel title",
-        section: "contact-panel",
-        locale,
-        file,
-        path: "sections.2.title",
-      },
-      {
-        id: `pages.legal.contact.primaryCta`,
-        kind: "link",
-        label: "Legal contact CTA",
-        section: "contact-panel",
-        locale,
-        file,
-        path: "sections.2.primaryCta",
-      },
-    );
+  if (!isObject(value)) return [];
+
+  if (isLink(value)) {
+    return [makeTarget({ ...context, kind: "link", labelPath: context.path, current: value })];
   }
-  return seeds;
-}
 
-function settingsSeeds(): TargetSeed[] {
-  const seeds: TargetSeed[] = [];
-  for (const locale of LOCALES) {
-    const file = `src/content/settings/menus-${locale}.json`;
-    seeds.push(
-      {
-        id: `settings.menus.nav.demoCta`,
-        kind: "link",
-        label: "Navbar demo CTA",
-        section: "header",
-        locale,
-        file,
-        path: "nav.demoCta",
-      },
-      {
-        id: `settings.menus.nav.directLinks.1.enabled`,
-        kind: "toggle",
-        label: "Pricing menu enabled",
-        section: "header",
-        locale,
-        file,
-        path: "nav.directLinks.1.enabled",
-      },
-      {
-        id: `settings.menus.footer.demoCta`,
-        kind: "link",
-        label: "Footer demo CTA",
-        section: "footer",
-        locale,
-        file,
-        path: "footer.demoCta",
-      },
-      {
-        id: `settings.menus.footer.copyright`,
-        kind: "text",
-        label: "Footer copyright",
-        section: "footer",
-        locale,
-        file,
-        path: "footer.copyright",
-      },
-    );
+  if (isImage(value)) {
+    return [makeTarget({ ...context, kind: "image", labelPath: context.path, current: value })];
   }
-  return seeds;
+
+  const nextSection = typeof value.sectionId === "string" ? value.sectionId : context.section;
+  return Object.entries(value).flatMap(([key, child]) => {
+    if (SKIPPED_KEYS.has(key)) return [];
+    return scanValue(child, {
+      ...context,
+      section: nextSection,
+      path: context.path ? `${context.path}.${key}` : key,
+    });
+  });
 }
 
-export function getStarterTargetSeeds(): TargetSeed[] {
-  return [
-    ...siteHeroSeeds(),
-    ...qualityPageSeeds(),
-    ...legalPageSeeds(),
-    ...settingsSeeds(),
-  ];
+export function discoverContentTargets(file: string, raw: string, json: unknown): ContentTarget[] {
+  if (!isObject(json)) return [];
+
+  return scanValue(json, {
+    prefix: inferPrefix(file, json),
+    locale: inferLocale(file, json),
+    entry: inferEntry(file, json),
+    file,
+    fileSha: hashFile(raw),
+    section: inferEntry(file, json),
+    path: "",
+  });
 }

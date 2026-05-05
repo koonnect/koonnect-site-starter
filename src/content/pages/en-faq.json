@@ -1,0 +1,41 @@
+{
+  "locale": "en",
+  "pageKey": "faq",
+  "routeSlug": "faq",
+  "status": "published",
+  "templateId": "faq-page",
+  "metadata": {
+    "title": "FAQ — Koonnect Starter",
+    "description": "Template for frequently asked questions edited by the conversational CMS."
+  },
+  "hero": {
+    "sectionId": "hero-centered",
+    "eyebrow": "FAQ",
+    "title": ["Frequently asked", "with editorial structure"],
+    "description": "A simple template for product, support, onboarding or legal questions.",
+    "primaryCta": { "label": "Contact support", "href": "/en/contact" }
+  },
+  "sections": [
+    {
+      "sectionId": "faq",
+      "eyebrow": "Base",
+      "title": ["Everything editable", "without touching code"],
+      "items": [
+        { "question": "Who can edit this page?", "answer": "Any role authorized by the CMS can propose changes and generate a preview." },
+        { "question": "Can I add questions?", "answer": "Yes, as long as the payload keeps matching the FAQ schema." },
+        { "question": "Is publish automatic?", "answer": "No. Preview and publish are separate steps by design." }
+      ]
+    },
+    {
+      "sectionId": "contact-panel",
+      "eyebrow": "Still unsure",
+      "title": ["Talk to", "the right team"],
+      "description": "When the FAQ is not enough, route the contact to the best channel.",
+      "details": [
+        { "label": "Email", "value": "hello@koonnect.com", "href": "mailto:hello@koonnect.com" },
+        { "label": "Support", "value": "Business days, 09:00-18:00" }
+      ],
+      "primaryCta": { "label": "Open contact", "href": "/en/contact" }
+    }
+  ]
+}
