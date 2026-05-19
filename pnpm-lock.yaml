@@ -11,6 +11,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
+      '@koonnect/cms-core':
+        specifier: file:../koonnect-cms-control-plane/packages/cms-core/koonnect-cms-core-0.3.0.tgz
+        version: file:../koonnect-cms-control-plane/packages/cms-core/koonnect-cms-core-0.3.0.tgz(zod@4.3.6)
       '@tailwindcss/vite':
         specifier: ^4.2.4
         version: 4.2.4(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3))
@@ -439,6 +442,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@koonnect/cms-core@file:../koonnect-cms-control-plane/packages/cms-core/koonnect-cms-core-0.3.0.tgz':
+    resolution: {integrity: sha512-y1e2oaQkNEffoFXI2jJhZ2BNDJob2y/8lQVadmziJB0wmxicI0OG04AZNQ65qBFvVw1NLibqb6rrZ+q2umA6wA==, tarball: file:../koonnect-cms-control-plane/packages/cms-core/koonnect-cms-core-0.3.0.tgz}
+    version: 0.3.0
+    peerDependencies:
+      zod: ^3 || ^4
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -2297,6 +2306,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@koonnect/cms-core@file:../koonnect-cms-control-plane/packages/cms-core/koonnect-cms-core-0.3.0.tgz(zod@4.3.6)':
+    dependencies:
+      zod: 4.3.6
 
   '@oslojs/encoding@1.1.0': {}
 

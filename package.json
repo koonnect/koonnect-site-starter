@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "cms:targets": "tsx scripts/generate-content-targets.ts",
-    "cms:validate": "node scripts/cms-validate.mjs",
+    "cms:validate": "tsx scripts/cms-validate.ts",
     "prebuild": "pnpm cms:targets && pnpm cms:validate",
     "build": "astro build",
     "preview": "astro preview",
@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
+    "@koonnect/cms-core": "^0.3.0",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "tailwindcss": "^4.2.4",
