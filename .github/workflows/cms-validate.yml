@@ -10,6 +10,9 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    # Dormant on the starter repo (clone target) — active on every
+    # scaffolded tenant. Same gate as cloudflare-pages.yml.
+    if: github.repository != 'koonnect/koonnect-site-starter'
     # Same NODE_AUTH_TOKEN wiring as cloudflare-pages.yml — pnpm needs
     # it the moment any @koonnect/* package is added to dependencies.
     env:

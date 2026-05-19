@@ -14,6 +14,11 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # The starter is a clone target for `koonnect new-site` — it has no
+    # production deploy of its own. This guard keeps the workflow dormant
+    # in `koonnect/koonnect-site-starter` (no red badges from missing
+    # secrets) and active in every scaffolded tenant repo.
+    if: github.repository != 'koonnect/koonnect-site-starter'
     # NODE_AUTH_TOKEN authenticates pnpm against GitHub Packages for the
     # `@koonnect/*` scope (see .npmrc). Required when the tenant pulls
     # @koonnect/cms-core or any other Koonnect package — pre-wired in the
