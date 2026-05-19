@@ -14,6 +14,13 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # NODE_AUTH_TOKEN authenticates pnpm against GitHub Packages for the
+    # `@koonnect/*` scope (see .npmrc). Required when the tenant pulls
+    # @koonnect/cms-core or any other Koonnect package — pre-wired in the
+    # starter so adding a Koonnect dep "just works" on the next push.
+    # Repo secret: KOONNECT_PACKAGES_TOKEN (PAT with read:packages).
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.KOONNECT_PACKAGES_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -36,8 +43,12 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: e1b688909b80cbac11c69e744cbc3ccf
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          pnpm dlx wrangler@latest pages deploy out \
-            --project-name koortex-site \
+          # `__TENANT_PAGES_PROJECT__` is a marker swapped by the
+          # `koonnect new-site` CLI for the tenant's CF Pages project
+          # name (convention: <slug>-site). Astro emits `dist/`, not
+          # `out/` (the old marker referenced a Next.js dir).
+          pnpm dlx wrangler@latest pages deploy dist \
+            --project-name __TENANT_PAGES_PROJECT__ \
             --branch "${GITHUB_REF_NAME}" \
             --commit-hash "${GITHUB_SHA}" \
             --commit-message "${{ github.event.head_commit.message || 'Manual deploy' }}"

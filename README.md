@@ -69,3 +69,19 @@ pnpm build
 
 - Este repo ainda usa conteudo demo inspirado no KOORTEX para acelerar a fase de fundacao.
 - O primeiro tenant real sera derivado deste starter, nao o contrario.
+
+## CLI placeholders
+
+Estes ficheiros contêm marcadores `__TENANT_*__` que o `koonnect new-site`
+substitui no scaffold:
+
+| Ficheiro | Marcador | Substituído por |
+|---|---|---|
+| `astro.config.mjs` | `__TENANT_SITE_URL__` | URL final, e.g. `acme.koonnect.me` |
+| `.github/workflows/cloudflare-pages.yml` | `__TENANT_PAGES_PROJECT__` | CF Pages project, e.g. `acme-site` |
+| `CLAUDE.md` | `__TENANT_NAME__`, `__TENANT_SLUG__` | Display name + slug |
+| `package.json` | `name: "koonnect-site-starter"` | `<slug>-site-astro` (string match, não marcador) |
+
+Se editares manualmente o starter mantém os marcadores intactos — são
+inválidos como hosts/projects propositadamente, para que um esquecimento
+falhe ruidoso em vez de silencioso.

@@ -10,6 +10,10 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    # Same NODE_AUTH_TOKEN wiring as cloudflare-pages.yml — pnpm needs
+    # it the moment any @koonnect/* package is added to dependencies.
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.KOONNECT_PACKAGES_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
