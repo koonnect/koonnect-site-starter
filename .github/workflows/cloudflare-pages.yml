@@ -47,13 +47,22 @@ jobs:
         env:
           CLOUDFLARE_ACCOUNT_ID: e1b688909b80cbac11c69e744cbc3ccf
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # Pass the commit message through an env var instead of
+          # interpolating `${{ ... }}` straight into the shell command.
+          # A message containing a double-quote, backtick or newline
+          # otherwise breaks out of the --commit-message "..." argument
+          # (it broke a real koortex deploy) and is a shell-injection
+          # vector since commit messages are attacker-controllable.
+          COMMIT_MSG: ${{ github.event.head_commit.message || 'Manual deploy' }}
         run: |
           # `__TENANT_PAGES_PROJECT__` is a marker swapped by the
           # `koonnect new-site` CLI for the tenant's CF Pages project
           # name (convention: <slug>-site). Astro emits `dist/`, not
           # `out/` (the old marker referenced a Next.js dir).
+          # Collapse the message to the first line — wrangler wants a one-liner.
+          COMMIT_MSG_ONELINE="$(printf '%s' "$COMMIT_MSG" | head -n1)"
           pnpm dlx wrangler@latest pages deploy dist \
             --project-name __TENANT_PAGES_PROJECT__ \
             --branch "${GITHUB_REF_NAME}" \
             --commit-hash "${GITHUB_SHA}" \
-            --commit-message "${{ github.event.head_commit.message || 'Manual deploy' }}"
+            --commit-message "${COMMIT_MSG_ONELINE}"
